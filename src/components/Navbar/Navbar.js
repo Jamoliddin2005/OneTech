@@ -298,7 +298,7 @@ export default function Navbar({
                       translate('Корзинка', 'Savatcha', 'Cart')
                     }
                   </h6>
-                  <p className={classes.text_cart}> {totalCoastGet ? `$${totalCoastGet}` : "$0"}</p>
+                  <p className={classes.text_cart}> {totalCoastGet ? `${totalCoastGet} UZS` : "0 UZS"}</p>
                 </div>
               </div>
             </Link>
@@ -349,7 +349,7 @@ export default function Navbar({
       <div className={classes.Navbar_Bottom}>
         <div className="container">
           <div className={classes.Navbar_Bottom_row}>
-            <div className={classes.categories} onClick={()=> setHeight({ height: "0px", transition: "all .5s ease" })}>
+            <div className={classes.categories} onClick={() => setHeight({ height: "0px", transition: "all .5s ease" })}>
               <div className={classes.item}>
                 <i className="fa-solid fa-bars"></i>
                 {
