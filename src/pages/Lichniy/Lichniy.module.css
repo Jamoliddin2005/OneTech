@@ -1,0 +1,63 @@
+.Profile_private {
+  margin-top: 80px;
+  border: 1px solid #f2f2f2;
+  padding: 38px 43px;
+  margin-bottom: 80px;
+}
+
+.Profile_private form {
+  display: flex;
+  flex-direction: column;
+}
+
+.Profile_private form .div_input_label {
+  width: 60%;
+}
+
+.Profile_private form .div_input_label input {
+  width: 100%;
+  background: #f7f7f7;
+  border: 1px solid #eee;
+  border-radius: 2px;
+  box-shadow: none;
+  color: #383838;
+  height: auto;
+  font-size: 13px;
+  padding: 8px 13px 7px;
+  outline: none;
+  transition: 0.3s;
+  margin-bottom: 19px;
+}
+.Profile_private form .div_input_label input:focus {
+  border: 1px solid rgb(175, 175, 175);
+}
+.Profile_private form label {
+    color: #888;
+    font-size: 13px;
+    font-weight: 400;
+    margin-bottom: 6px;
+    display: block;
+}
+.Profile_private form button {
+  width: 200px;
+  margin-top: 30px;
+  cursor: pointer;
+  background-color: #2980b9;
+  border-color: #2980b9;
+  color: #fff;
+  font-size: 13px;
+  font-weight: normal;
+  text-transform: none;
+  text-decoration: none;
+  border: 1px solid;
+  border-radius: 2px;
+  padding: 8px 18px 9px;
+}
+
+
+
+@media(max-width:530px){
+    .Profile_private form .div_input_label {
+        width: 100%; 
+    }
+}

@@ -1,0 +1,31 @@
+.hero{
+    max-width: 100vw;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+.hero .hero_rgba{
+    opacity: .9;
+}
+
+.hero .center_title{
+    height: 260px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero .hero_title{
+    font-weight: 500;
+    -webkit-font-smoothing: antialiased;
+    font-size: 36px;
+    text-shadow: rgb(0 0 0 / 1%) 0 0 1px;
+}
+
+@media(max-width: 576px){
+    .hero .hero_title{
+        font-size: 24px;
+    }
+}

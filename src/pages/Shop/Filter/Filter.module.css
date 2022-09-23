@@ -1,0 +1,58 @@
+.Filter {
+  width: calc((100% / 12) * 3);
+  display: flex;
+  flex-direction: column;
+}
+
+.Filter h4 {
+  font-size: 18px;
+  font-weight: 500;
+  color: #000;
+}
+
+.Filter .top_h4 {
+  margin-top: 27px;
+}
+
+.Filter .category,
+.Filter .brands {
+  display: flex;
+  flex-direction: column;
+  margin-top: 37px;
+}
+
+.Filter .brands .link,
+.Filter .category .link {
+  font-size: 14px;
+  font-weight: 400;
+  color: rgba(0, 0, 0, 0.5);
+  transition: all 200ms ease;
+  margin-bottom: 7px;
+}
+
+.Filter .brands .link:hover,
+.Filter .category .link:hover {
+  color: #007bff;
+}
+
+.Filter .category {
+  position: relative;
+  width: 55%;
+  min-height: 120px;
+}
+
+@media(max-width: 990px){
+  .Filter{
+    width: 100%;
+  }
+  .Filter .category{
+    width: 100%;
+  }
+}
+
+@media(max-width: 576px){
+  .Filter{
+    padding: 0 12px;
+  }
+  
+}

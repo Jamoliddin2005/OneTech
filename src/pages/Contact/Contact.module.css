@@ -1,0 +1,163 @@
+.Contact {
+    width: calc(100% / 12 * 10);
+    margin: auto;
+}
+
+.Contact .contacts {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 75px;
+}
+
+.Contact .contacts .contact {
+    width: calc((100% - 60px) / 3);
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding-left: 45px;
+    height: 100px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 5px;
+    border: 1px solid rgb(232, 232, 232);
+
+}
+
+.Contact .contacts .contact i {
+    font-size: 40px;
+    color: #007bff;
+    margin-right: 17px;
+}
+
+.Contact .contacts .contact h4 {
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.Contact .contacts .contact a {
+    font-size: 12px;
+    font-weight: 400;
+    color: rgba(0, 0, 0, 0.5);
+}
+
+/* form */
+
+.Contact .get_in_touch{
+    padding-top: 85px;
+    padding-bottom: 125px;
+    position: relative;
+}
+
+.Contact .get_in_touch h2{
+    font-size: 30px;
+    font-weight: 500;
+    margin-bottom: 37px;
+}
+
+.Contact .get_in_touch .inputs{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 30px;
+}
+
+.Contact .get_in_touch .inputs .inp{
+    width: calc((100% - 60px) / 3);
+    height: 50px;
+    padding-left: 25px;
+    color: rgb(14, 140, 228);
+    outline: none;
+    border: 1px solid rgb(229, 229, 229);
+    border-radius: 5px;
+    transition: .2s;
+    font-size: 18px;
+}
+
+.Contact .get_in_touch .inputs .inp:focus{
+    border-color: rgb(118, 118, 118);
+}
+
+.Contact .get_in_touch .textarea textarea{
+    width: 100%;
+    min-height: 160px;
+    resize: vertical;
+    padding-left: 25px;
+    padding-top: 15px;
+    color: rgb(14, 140, 228);
+    font-size: 18px;
+    font-weight: 400;
+}
+
+.Contact .get_in_touch .btn{
+    cursor: pointer;
+    font-size: 18px;
+    color: #fff;
+    padding: 0 35px;
+    margin-top: 24px;
+    height: 48px;
+    background: rgb(14, 140, 228);
+    border-radius: 5px;
+    transition: .2s;
+    border: none;
+}
+
+.Contact .get_in_touch .btn:hover{
+    background: rgba(14, 139, 228, 0.841);
+}
+
+.map_top{
+    height: 50px;
+    width: 100%;
+    background: #fafafa;
+}
+
+.map_yandex{
+    width: 100%;
+}
+
+@media (max-width: 1200px){
+    .Contact .contacts .contact{
+        padding-left: 20px;
+    }
+}
+
+@media (max-width: 998px){
+    .Contact .contacts{
+        flex-direction: column;
+    }
+    .Contact .contacts .contact{
+        width: 100%;
+        margin-bottom: 30px;
+    }
+    .Contact .contacts .contact:last-of-type{
+        margin-bottom: 0;
+    }
+    .Contact .get_in_touch .inputs .inp{
+        font-size: 14px;
+    }
+    .Contact .contacts .contact{
+        padding-left: 20px;
+    }
+    .Contact .contacts .contact i{
+        width: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .Contact .get_in_touch .textarea textarea{
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 768px) {
+    .Contact .get_in_touch .inputs{
+        flex-direction: column;
+    }
+    .Contact .get_in_touch .inputs .inp{
+        width: 100%;
+        margin-bottom: 30px;
+    }
+    .Contact .get_in_touch .inputs .inp:last-of-type{
+        margin-bottom: 0;
+    }
+    
+}

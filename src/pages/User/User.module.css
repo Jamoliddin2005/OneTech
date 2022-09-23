@@ -1,0 +1,8 @@
+.User_dashboard{
+    margin: 30px 0;
+}
+
+.User_dashboard .dashboard {
+    display: flex;
+    justify-content: space-between;
+}

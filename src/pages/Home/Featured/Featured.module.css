@@ -1,0 +1,127 @@
+.bigСard {
+  width: calc(100vw / 100 * 25);
+  flex-direction: column;
+  position: relative;
+  background: #fff;
+  left: -10px;
+  width: calc(100% + 20px);
+  -webkit-transition: all 200ms ease;
+  -moz-transition: all 200ms ease;
+  -ms-transition: all 200ms ease;
+  -o-transition: all 200ms ease;
+  transition: all 200ms ease;
+  background: #fff;
+  cursor: pointer;
+  padding-top: 40px;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.bigСard img {
+  margin: auto;
+  width: 80%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 180px;
+  object-fit: contain;
+}
+
+.bigСardBtn {
+  visibility: hidden;
+  opacity: 0;
+  display: block;
+  width: 100%;
+  transition: all 200ms ease;
+  height: 48px;
+  background: #0e8ce4;
+  border: none;
+  outline: none;
+  font-size: 18px;
+  font-weight: 400;
+  color: #fff;
+  cursor: pointer;
+  margin-top: 19px;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+.bigСard:hover .bigСardBtn {
+  visibility: visible;
+  opacity: 1;
+}
+
+.bigСard:hover {
+  box-shadow: 0 5px 25px rgb(0 0 0 / 10%);
+  z-index: 10;
+}
+
+.absolut {
+  position: absolute;
+  top: 18px;
+  left: 18px;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  color: #fff;
+  text-align: center;
+  line-height: 36px;
+  font-size: 12px;
+}
+
+.absolut.new {
+  background: #0e8ce4;
+}
+
+.bigСardPrice {
+  text-align: center;
+  font-size: 16px;
+  font-weight: 500;
+  margin-top: 25px;
+}
+
+.bigСardLink {
+  display: block;
+  margin: auto;
+  font-size: 14px;
+  font-weight: 400;
+  color: #000;
+  white-space: unset;
+  transition: all 200ms ease;
+  text-align: center;
+  margin-top: 4px;
+  height: 50px;
+  overflow: hidden;
+}
+
+.bigСardLink:hover {
+  color: #0e8ce4;
+}
+
+del {
+  font-size: 12px;
+  font-weight: 400;
+  color: rgba(0, 0, 0, 0.6);
+  margin-left: 10px;
+}
+
+.absolut.sale1 {
+  background: #df3b3b;
+}
+
+.saleText {
+  color: #df3b3b;
+}
+
+@media (max-width: 768px) {
+  .bigСard {
+    padding-top: 15px;
+  }
+
+  .bigСardBtn {
+    margin-top: 0;
+  }
+  .bigСardPrice {
+    margin-top: 10px;
+  }
+}

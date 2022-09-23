@@ -1,0 +1,6 @@
+.UserOffice{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: calc(100% / 52);
+}

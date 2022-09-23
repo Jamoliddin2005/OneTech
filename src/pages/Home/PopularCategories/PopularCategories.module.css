@@ -1,0 +1,74 @@
+.PopularCategoryRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 88px;
+  padding-bottom: 90px;
+}
+
+.PopularCategoryRow .PopularCategoryRight {
+  width: 75%;
+}
+
+.PopularCategoryRow .PopularCategoryLeft {
+  width: 25%;
+}
+
+.PopularCategoryRow .PopularCategoryLeft h3 {
+  font-size: 30px;
+  font-weight: 500;
+  color: #000;
+  line-height: 1.2;
+  width: min-content;
+  margin-bottom: 100px;
+}
+
+.PopularCategoryRow .PopularCategoryLeft a {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #0e8ce4;
+}
+
+.item:nth-of-type(25) {
+  background: red;
+}
+
+.odd {
+  background: #eff6fa;
+}
+
+.popularCart {
+  height: 216px;
+  padding-left: 40px;
+  padding-right: 40px;
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+}
+
+.popularCartTxt {
+  margin-top: 20px;
+  font-size: 14px;
+  line-height: 1.714;
+  text-align: center;
+}
+
+@media (max-width: 992px) {
+  .PopularCategoryRow {
+    flex-wrap: wrap;
+  }
+
+  .PopularCategoryRow .PopularCategoryLeft {
+    width: 100%;
+    margin-bottom: 8px;
+  }
+
+  .PopularCategoryRow .PopularCategoryRight {
+    width: 100%;
+  }
+
+  .PopularCategoryRow .PopularCategoryLeft h3 {
+    width: auto;
+  }
+}
