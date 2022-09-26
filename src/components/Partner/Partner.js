@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import classes from "./Partner.module.css";
 import Slider from "react-slick";
+import Loading2 from "../../components/Loading2/Loading2"
 
 let NextBtn = (props) => {
   const { className, onClick } = props;
@@ -21,59 +22,68 @@ let PrevBtn = (props) => {
 };
 
 const Partner = () => {
-  const [images] = useState([
-    "/images/moreProduct/brand1.png",
-    "/images/moreProduct/brand2.png",
-    "/images/moreProduct/brand3.png",
-    "/images/moreProduct/brand4.png",
-    "/images/moreProduct/brand1.png",
-    "/images/moreProduct/brand2.png",
-    "/images/moreProduct/brand3.png",
-    "/images/moreProduct/brand4.png",
-    "/images/moreProduct/brand1.png",
-    "/images/moreProduct/brand2.png",
-    "/images/moreProduct/brand3.png",
-    "/images/moreProduct/brand4.png",
-  ]);
-  const [slide, setSlide] = useState(8);
+
+  const [slide, setSlide] = useState(5);
   useEffect(
     (e) => {
       if (window.innerWidth > 768 && window.innerWidth < 992) {
-        setSlide(4);
+        setSlide(3);
       } else if (window.innerWidth > 576 && window.innerWidth < 768) {
-        setSlide(2);
+        setSlide(1);
       } else if (window.innerWidth < 576) {
         setSlide(1);
       }
     },
     []
   );
+
+  const [loading, setLoading] = useState(false)
+  const [partners, setPartners] = useState([''])
+
+
+
+  useEffect(() => {
+    const GetPartners = () => {
+      setLoading(true)
+      fetch(`${process.env.REACT_APP_URL}product/4brand-list/`)
+        .then((res) => res.json())
+        .then(res => {
+          console.log(res.results);
+          setPartners(res.results)
+          setLoading(false)
+        })
+        .catch(err => console.log(err))
+    }
+    GetPartners()
+  }, [])
+
+
+
+
   const settings = {
-    dots: false,
     infinite: true,
-    loop: true,
     slidesToShow: slide,
     slidesToScroll: 1,
     autoplay: true,
-    autoplaySpeed: 3000,
-    speed: 250,
-    nextArrow: <NextBtn />,
-    prevArrow: <PrevBtn />,
+    autoplaySpeed: 2000,
+    pauseOnHover: true
   };
   return (
     <div className={classes.Partner}>
       <div className="container Partner">
         <div className={classes.shadowBox}>
           <div className={classes.slideBox}>
-            <Slider {...settings}>
-              {images.map((img, index) => {
+
+            {loading ? <Loading2 /> : <Slider {...settings}>
+              {partners.map((img, index) => {
                 return (
                   <div key={index} className={classes.sild}>
-                    <img src={img} alt="img" />
+                    <img src={img.image} alt="img" />
                   </div>
                 );
               })}
-            </Slider>
+            </Slider>}
+
           </div>
         </div>
       </div>

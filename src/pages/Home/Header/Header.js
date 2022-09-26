@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import classes from "./Header.module.css";
 import Slider from "react-slick";
-import Loading from "../../../components/Loading/Loading"
+import Loading2 from "../../../components/Loading2/Loading2"
 import { toast } from "react-toastify";
 import { BASE_URL } from "../../../constants/BASE_URL";
 import './Header.css'
@@ -35,8 +35,10 @@ function Header() {
   };
 
   return (
-    <div className="HomeHeaderBigDiv">
-      {loading ? <Loading /> :
+    <div className={classes.HEader_bg_div}>
+      {loading ? <div className={classes.HeaderLoadingDiv}>
+        <Loading2 />
+      </div> :
         <Slider {...settings}>
           {banner.map((item, index) => (
             <div key={index}>

@@ -298,7 +298,7 @@ export default function Navbar({
                       translate('Корзинка', 'Savatcha', 'Cart')
                     }
                   </h6>
-                  <p className={classes.text_cart}> {totalCoastGet ? `${totalCoastGet} UZS` : "0 UZS"}</p>
+                  <p className={classes.text_cart}> {totalCoastGet ? `$${totalCoastGet}` : "$0"}</p>
                 </div>
               </div>
             </Link>

@@ -1,7 +1,3 @@
-.slick-arrow {
-  display: none !important;
-}
-
-.HomeHeaderBigDiv {
-  min-height: 300px;
-}
+.slick-arrow{
+    display: none !important;
+  }

@@ -3,11 +3,11 @@
   min-height: 300px;
 }
 
-.Products { 
+.Products {
   position: relative;
   padding: 100px 0;
 }
- 
+
 .Products .products_count {
   font-size: 14px;
   font-weight: 500;
@@ -269,4 +269,23 @@
 .Products .pagination .prev:hover,
 .Products .pagination .next:hover {
   color: #000;
+}
+
+.Products .pagination .disabled {
+  padding: 15px 20px;
+  opacity: 0.3;
+  margin-left: 20px;
+  cursor: auto;
+}
+
+.Products .pagination .prev:hover,
+.Products .pagination .next:hover {
+  color: #000;
+}
+
+
+@media(max-width:992px){
+  .Products .product_card{
+    width: 32%;
+  }
 }
