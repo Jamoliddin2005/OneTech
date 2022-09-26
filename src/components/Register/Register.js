@@ -3,6 +3,7 @@ import classes from "./Register.module.css"
 import axios from "axios"
 import { toast } from 'react-toastify'
 import { BASE_URL } from '../../constants/BASE_URL'
+import translate from '../../services/translate'
 
 function Register({
     setIsRegister,
@@ -29,19 +30,19 @@ function Register({
                 })
                     .then(res => res.json())
                     .then(res => {
-                        return toast.success("Success!")
+                        return toast.success(translate("", "Muvaffaqiyatli!", "Success!"))
                     })
                     .catch(err => {
                         if (err.response) {
                             if (err.response.data) {
                                 if (err.response.data) {
                                     if (err.response.data.username) {
-                                        if (err.response.data.username[0] === "account with this username already exists.") {
+                                        if (err.response.data.username[0] === translate("Учетная запись с таким именем пользователя уже существует.", "bir xil foydalanuvchi nomi bilan hisob allaqachon mavjud.", "account with this username already exists.")) {
                                             return toast.error(err.response.data.username[0])
                                         }
                                     }
                                     if (err.response.data.email) {
-                                        if (err.response.data.email[0] === "account with this email already exists.") {
+                                        if (err.response.data.email[0] === translate("учетная запись с этим адресом электронной почты уже существует.", "bir xil foydalanuvchi nomi bilan hisob allaqachon mavjud.", "account with this email already exists.")) {
                                             return toast.error(err.response.data.email[0])
                                         }
                                     }

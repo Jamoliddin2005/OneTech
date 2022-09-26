@@ -5,9 +5,10 @@ import { toast } from 'react-toastify'
 import Loading from '../../components/Loading/Loading'
 import { BASE_URL } from '../../constants/BASE_URL'
 import classes from './Cart.module.css'
+import translate from '../../services/translate'
+
 
 const Cart = ({
-    productNumbers,
     minusNumber,
     productsInCart,
     totalCoastGet,
@@ -80,17 +81,17 @@ const Cart = ({
                                 <>
 
                                     <h2 className={classes.cart_title}>
-                                        Shopping Cart
+                                        {translate("Корзинка", "Savatcha", "Shopping Cart")}
                                     </h2>
                                     <div className={classes.cart_items}>
                                         <ul>
                                             <li className={classes.cart_inline_names}>
-                                                <p className={classes.cart_item_inline_name}>Photo</p>
-                                                <p className={classes.cart_item_inline_name}>Name</p>
-                                                <p className={classes.cart_item_inline_name}>Price</p>
-                                                <p className={classes.cart_item_inline_name}>Category</p>
-                                                <p className={classes.cart_item_inline_name}>weight</p>
-                                                <p className={classes.cart_item_inline_name}>Total</p>
+                                                <p className={classes.cart_item_inline_name}>     {translate("Картина", "Rasm", "Photo")} </p>
+                                                <p className={classes.cart_item_inline_name}>     {translate("Имя", "Nomi", "Name")} </p>
+                                                <p className={classes.cart_item_inline_name}>     {translate("Цена", "Narx", "Price")} </p>
+                                                <p className={classes.cart_item_inline_name}>     {translate("Категория", "Kategoriya", "Category")} </p>
+                                                <p className={classes.cart_item_inline_name}>     {translate("Масса", "Og'irlik", "weight")} </p>
+                                                <p className={classes.cart_item_inline_name}>     {translate("Количество", "Soni", "Total")} </p>
                                             </li>
                                             {
                                                 Object.values(JSON.parse(productsInCart)).map((item, index) => (
@@ -137,19 +138,19 @@ const Cart = ({
 
                                     <div className={classes.order_total}>
                                         <p className={classes.order_total_name}>
-                                            Order Total:
+                                            {translate("Итоговая цена:", "Jami:", "Order Total:")}
                                         </p>
-                                        <h3 className={classes.order_total_value}>${totalCoastGet}</h3>
+                                        <h3 className={classes.order_total_value}>{totalCoastGet} UZS</h3>
                                     </div>
 
                                     <div className={classes.add_cart_btns}>
                                         {token ? <Link to={"/"} className={classes.add_cart_btn} onClick={(e) => {
                                             e.preventDefault()
                                             setMoney(true)
-                                        }} >Add to Cart</Link> : <Link to={"/"} className={classes.add_cart_btn} onClick={(e) => {
+                                        }} > {translate("Покупать", "Sotib olish", "Buy")}</Link> : <Link to={"/"} className={classes.add_cart_btn} onClick={(e) => {
                                             e.preventDefault()
                                             setIsLogin(true)
-                                        }}>Add to Cart</Link>}
+                                        }}> {translate("Покупать", "Sotib olish", "Buy")}</Link>}
                                     </div>
 
                                     {money ? <div className={classes.AddToCartBg} onClick={() => {
@@ -161,33 +162,33 @@ const Cart = ({
                                         <div className={classes.money}>
                                             <div className={classes.form}>
                                                 <form onSubmit={onSubmit}>
-                                                    <label htmlFor="phoneNumber">Phone Number</label>
-                                                    <input type="number" name="phoneNumber" id="phoneNumber" placeholder="phone Number" required value={phoneNumber} onChange={(e) => {
+                                                    <label htmlFor="phoneNumber"> {translate("Номер телефона", "Telefon raqam", "Phone Number")}</label>
+                                                    <input type="number" name="phoneNumber" id="phoneNumber" placeholder={translate("Номер телефона", "Telefon raqam", "Phone Number")} required value={phoneNumber} onChange={(e) => {
                                                         setPhoneNumber(e.target.value)
                                                     }} />
-                                                    <label htmlFor="Address">Address</label>
-                                                    <input type="text" name="Address" id="Address" placeholder="Address" required value={address} onChange={(e) => {
+                                                    <label htmlFor="Address"> {translate("Адрес", "Manzil", "Address")}</label>
+                                                    <input type="text" name="Address" id="Address" placeholder={translate("Адрес", "Manzil", "Address")} required value={address} onChange={(e) => {
                                                         setAddress(e.target.value)
                                                     }} />
-                                                    <label htmlFor="Note">Note</label>
-                                                    <input type="text" name="Note" id="Note" placeholder="Note" required value={note} onChange={(e) => {
+                                                    <label htmlFor="Note">{translate("Напоминание", "Eslatma", "Note")}</label>
+                                                    <input type="text" name="Note" id="Note" placeholder={translate("Напоминание", "Eslatma", "Note")} required value={note} onChange={(e) => {
                                                         setNote(e.target.value)
                                                     }} />
-                                                    <label htmlFor="ZipCode">ZipCode</label>
-                                                    <input type="number" name="ZipCode" id="ZipCode" placeholder="ZipCode" required value={zipCode} onChange={(e) => {
+                                                    <label htmlFor="ZipCode">{translate("Почтовый индекс", "Pochta indeksi", "ZipCode")}</label>
+                                                    <input type="number" name="ZipCode" id="ZipCode" placeholder={translate("Почтовый индекс", "Pochta indeksi", "ZipCode")} required value={zipCode} onChange={(e) => {
                                                         setZipCode(e.target.value)
                                                     }} />
-                                                    <button>Submit</button>
+                                                    <button>{translate("Отправлять", "Yuborish", "Submit")}</button>
                                                 </form>
                                             </div>
                                         </div>
                                     ) : ""}
                                 </>
-                            ) : <Link to={"/"} className={classes.empty}>Cart is Empty</Link>
+                            ) : <Link to={"/"} className={classes.empty}>{translate("Корзина пуста", "Savatcha bo‘sh", "Cart is empty")}</Link>
                         }
 
 
-                    </div> : productsInCart === null ? <Link className={classes.empty} to={"/"}>Cart is Empty</Link> : productsInCart === 0 ? <Link className={classes.empty} to={"/"}>Cart is Empty</Link> : <Loading />
+                    </div> : productsInCart === null ? <Link className={classes.empty} to={"/"}>{translate("Корзина пуста", "Savatcha bo‘sh", "Cart is empty")}</Link> : productsInCart === 0 ? <Link className={classes.empty} to={"/"}>{translate("Корзина пуста", "Savatcha bo‘sh", "Cart is empty")}</Link> : <Loading />
                 }
 
             </div>
