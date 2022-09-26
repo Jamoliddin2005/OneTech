@@ -2,24 +2,7 @@ import React, { useEffect, useState } from "react";
 import classes from "./Partner.module.css";
 import Slider from "react-slick";
 import Loading2 from "../../components/Loading2/Loading2"
-
-let NextBtn = (props) => {
-  const { className, onClick } = props;
-  return (
-    <button className={className + " " + classes.nextBtn} onClick={onClick}>
-      <i className="fa-solid fa-chevron-right"></i>
-    </button>
-  );
-};
-
-let PrevBtn = (props) => {
-  const { className, onClick } = props;
-  return (
-    <button className={className + " " + classes.prevBtn} onClick={onClick}>
-      <i className="fa-solid fa-chevron-left"></i>
-    </button>
-  );
-};
+import { toast } from "react-toastify"
 
 const Partner = () => {
 
@@ -48,11 +31,10 @@ const Partner = () => {
       fetch(`${process.env.REACT_APP_URL}product/4brand-list/`)
         .then((res) => res.json())
         .then(res => {
-          console.log(res.results);
           setPartners(res.results)
           setLoading(false)
         })
-        .catch(err => console.log(err))
+        .catch(err => toast.error("ERROR"))
     }
     GetPartners()
   }, [])
