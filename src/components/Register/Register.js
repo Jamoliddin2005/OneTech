@@ -62,40 +62,40 @@ function Register({
     return (
         <>
             <div className={classes.register}>
-                <h3>Register</h3>
+                <h3>{translate("Регистратсия", "Ro'yxatdan o'tish", "Registration")}</h3>
                 <form action="#" onSubmit={PostRegister}>
                     <div className={classes.labelInp}>
-                        <label htmlFor="first_name">First Name</label>
-                        <input type="text" name="first_name" id="first_name" placeholder="First Name..." required={true}
+                        <label htmlFor="first_name">{translate("Введите ваше имя", "Ismingizni kiriting", "First Name")}</label>
+                        <input type="text" name="first_name" id="first_name" placeholder={translate("Введите ваше имя...", "Ismingizni kiriting...", "First Name...")} required={true}
                             value={first_name}
                             onChange={(e) => setFirstname(e.target.value)} />
                     </div>
                     <div className={classes.labelInp}>
-                        <label htmlFor="last_name">Last Name</label>
-                        <input type="text" name="last_name" id="last_name" placeholder="Last Name..." required={true} value={last_name}
+                        <label htmlFor="last_name">{translate("Введите ваше фамилия", "Familiyangizni kiriting", "Last Name")}</label>
+                        <input type="text" name="last_name" id="last_name" placeholder={translate("Введите ваше фамилия...", "Familiyangizni kiriting...", "Last Name...")} required={true} value={last_name}
                             onChange={(e) => setLastname(e.target.value)} />
                     </div>
                     <div className={classes.labelInp}>
-                        <label htmlFor="userName">Username</label>
-                        <input type="text" name="userName" id="userName" placeholder="Username..." required={true} value={userName}
+                        <label htmlFor="userName">{translate("Введите ваше имя пользователя", "Foydalanuvchi nomi", "Username")}</label>
+                        <input type="text" name="userName" id="userName" placeholder={translate("имя пользователя...", "Foydalanuvchi nomi...", "Username...")} required={true} value={userName}
                             onChange={(e) => setUserName(e.target.value)} />
                     </div>
                     <div className={classes.labelInp}>
-                        <label htmlFor="email">Email</label>
-                        <input type="email" name="email" id="email" placeholder="Email..." required={true} value={email}
+                        <label htmlFor="email">{translate("Введите ваше Эл. адрес", "Elektron pochta manzil", "Email")}</label>
+                        <input type="email" name="email" id="email" placeholder={translate("Эл. адрес...", "Elektron pochta manzil...", "Email...")} required={true} value={email}
                             onChange={(e) => setEmail(e.target.value)} />
                     </div>
                     <div className={classes.labelInp}>
-                        <label htmlFor="password1">Password</label>
-                        <input type="password" name="password1" id="password1" placeholder="Password..." required={true} value={password1}
+                        <label htmlFor="password1">{translate("Введите ваше пароль", "Parolingizni kiriting", "Password")}</label>
+                        <input type="password" name="password1" id="password1" placeholder={translate("Введите ваше пароль...", "Parolingizni kiriting...", "Password...")} required={true} value={password1}
                             onChange={(e) => setPassword1(e.target.value)} />
                     </div>
                     <div className={classes.labelInp}>
-                        <label htmlFor="password2">Password </label>
-                        <input type="password" name="password2" id="password2" placeholder="Password..." required={true} value={password2}
+                        <label htmlFor="password2">{translate("Повторите ваш пароль", "Parolingizni qayta yozing", "Repeat your password")} </label>
+                        <input type="password" name="password2" id="password2" placeholder={translate("Повторите ваш пароль...", "Parolingizni qayta yozing...", "Repeat your password...")} required={true} value={password2}
                             onChange={(e) => setPassword2(e.target.value)} />
                     </div>
-                    <button>Submit</button>
+                    <button>{translate("Регистратсия", "Ro'yxatdan o'tish", "Registration")}</button>
                 </form>
             </div>
             <div

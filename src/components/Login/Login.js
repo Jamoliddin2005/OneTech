@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { toast } from "react-toastify";
 import { BASE_URL } from "../../constants/BASE_URL";
 import classes from "./Login.module.css";
+import translate from '../../services/translate'
 
 function Login({ setIsRegister, setIsLogin, hrefHome }) {
   const [email, setEmail] = useState("");
@@ -35,33 +36,33 @@ function Login({ setIsRegister, setIsLogin, hrefHome }) {
   return (
     <>
       <div className={classes.login}>
-        <h3>Login</h3>
+        <h3>{translate("Войти", "Kirish", "Login")}</h3>
         <form action="#" onSubmit={PostLogin}>
           <div className={classes.labelInp}>
-            <label htmlFor="email">Email</label>
+            <label htmlFor="email">{translate("Эл. адрес", "Elektron pochta manzil", "Email")}</label>
             <input
               type="email"
               name="email"
               id="email"
-              placeholder="Email..."
+              placeholder={translate("Эл. адрес...", "Elektron pochta manzil...", "Email...")}
               required={true}
               value={email}
               onChange={(e) => setEmail(e.target.value)}
             />
           </div>
           <div className={classes.labelInp}>
-            <label htmlFor="password1">Password</label>
+            <label htmlFor="password1">{translate("Пароль", "Parolingizni kiriting", "Password")}</label>
             <input
               type="password"
               name="password1"
               id="password1"
-              placeholder="Password..."
+              placeholder={translate("Пароль...", "Parolingizni kiriting...", "Password...")}
               required={true}
               value={password1}
               onChange={(e) => setPassword1(e.target.value)}
             />
           </div>
-          <button>Submit</button>
+          <button>{translate("Войти", "Kirish", "Login")}</button>
         </form>
       </div>
       <div
