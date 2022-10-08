@@ -106,6 +106,12 @@
   line-height: 1.7;
   font-weight: 400;
   color: #828282;
+  cursor: pointer;
+  transition: 0.5s;
+}
+
+.Footer .FooterLeft p:hover {
+  color: #0e8ce4;
 }
 
 .Footer .FooterBottomRow {
@@ -176,39 +182,39 @@
   color: #0e8ce4;
 }
 
-.Footer .footer_container{
+.Footer .footer_container {
   width: 1170px;
   margin: auto;
 }
 
 @media (max-width: 1400px) {
   .Footer .footer_container {
-      width: 1140px;
+    width: 1140px;
   }
 }
 
 @media (max-width: 1200px) {
   .Footer .footer_container {
-      width: 960px;
+    width: 960px;
   }
 }
 
 @media (max-width: 998px) {
   .Footer .footer_container {
-      width: 720px;
+    width: 720px;
   }
 }
 
 @media (max-width: 768px) {
   .Footer .footer_container {
-      width: 540px;
+    width: 540px;
   }
 }
 
 @media (max-width: 576px) {
   .Footer .footer_container {
-      width: 100%;
-      padding: 0 12px;
+    width: 100%;
+    padding: 0 12px;
   }
 }
 
@@ -217,41 +223,41 @@
     flex-direction: column;
   }
 
-  .Footer .Right{
+  .Footer .Right {
     margin-top: 30px;
   }
 
   .Footer .FooterBottomRow {
     flex-direction: column;
   }
-  .Footer .FooterRight{ 
+  .Footer .FooterRight {
     flex-direction: column;
   }
-  .Footer .FooterRight ul{
+  .Footer .FooterRight ul {
     margin-top: 20px;
     width: 100%;
   }
 }
 
-@media(max-width: 768px){
-  .Footer .Newsletter .row .Right input{
+@media (max-width: 768px) {
+  .Footer .Newsletter .row .Right input {
     width: 100%;
   }
-  .Footer .Newsletter .row .Left{
+  .Footer .Newsletter .row .Left {
     flex-direction: column;
     align-items: center;
     text-align: center;
   }
-  .Footer .Newsletter .row .Left .LeftItem{
+  .Footer .Newsletter .row .Left .LeftItem {
     margin-right: 0;
   }
-  .Footer .Newsletter .row .Left .LeftItem img{
+  .Footer .Newsletter .row .Left .LeftItem img {
     width: 40px;
   }
-  .Footer .Newsletter .row .Right input{
+  .Footer .Newsletter .row .Right input {
     font-size: 14px;
   }
-  .Footer .Newsletter .row .Right button{
+  .Footer .Newsletter .row .Right button {
     font-size: 14px;
   }
 }

@@ -11,6 +11,7 @@ function Footer() {
     const [categories, setCategories] = useState([""])
     const [loading, setLoading] = useState(true)
     const [email, setEmail] = useState("")
+    const [location, setLocation] = useState([""])
 
     useEffect(() => {
         const GetCategories = async () => {
@@ -23,8 +24,18 @@ function Footer() {
                 })
                 .catch(err => toast.error("ERROR"))
         }
+        const GetLocation = async () => {
+            fetch(`${BASE_URL}contact/location`)
+                .then((response) => response.json())
+                .then(res => {
+                    setLocation(res);
+                })
+                .catch(err => toast.error("ERROR"))
+        }
         GetCategories()
+        GetLocation()
     }, [])
+
 
 
 
@@ -90,11 +101,15 @@ function Footer() {
                             </Link>
                             <h5>
                                 {
-                                    translate("Есть вопросы? Звоните нам 24/7","Savol bormi? Bizga telefon qiling 24/7","Got Question? Call Us 24/7")
+                                    translate("Есть вопросы? Звоните нам 24/7", "Savol bormi? Bizga telefon qiling 24/7", "Got Question? Call Us 24/7")
                                 }
                             </h5>
                             <a href="tel:+38 068 005 3570">+38 068 005 3570</a>
-                            <p>17 Princess Road, London  <br /> Grester London NW18JR, UK</p>
+                            {location.map((item, index) => (
+                                <p key={index} onClick={() => {
+                                    window.open(item.url)
+                                }}>{item.name}</p>
+                            ))}
                             <div className={classes.socials}>
                                 <li>
                                     <a href="facebook.com">
@@ -119,7 +134,7 @@ function Footer() {
                             <ul>
                                 <h4>
                                     {
-                                        translate("Найдите быстро","Tezroq toping","Find it Fast")
+                                        translate("Найдите быстро", "Tezroq toping", "Find it Fast")
                                     }
                                 </h4>
                                 {categories.map((item, index) => (
@@ -137,35 +152,35 @@ function Footer() {
                                 </h4>
                                 <li><Link to="/">
                                     {
-                                        translate("Мой аккаунт","Menign akkauntim","My Account")
+                                        translate("Мой аккаунт", "Menign akkauntim", "My Account")
                                     }
-                                    </Link></li>
+                                </Link></li>
                                 <li><Link to="/">
                                     {
-                                        translate("Отслеживание заказа","Buyurtmani kuzatish","Order Tracking")
+                                        translate("Отслеживание заказа", "Buyurtmani kuzatish", "Order Tracking")
                                     }
-                                    </Link></li>
+                                </Link></li>
                                 <li><Link to="/">
                                     {
-                                        translate("Избранные","Tanlanganlar","Wish List")
+                                        translate("Избранные", "Tanlanganlar", "Wish List")
                                     }
-                                    </Link></li>
+                                </Link></li>
                                 <li><Link to="/">
                                     {
-                                        translate("Обслуживание клиентов","Mijozlarga xizmat ko'rsatish","Customer Services")
+                                        translate("Обслуживание клиентов", "Mijozlarga xizmat ko'rsatish", "Customer Services")
                                     }
-                                    </Link></li>
+                                </Link></li>
                                 <li><Link to="/">
                                     {
-                                        translate("Возврат/обмен","Qaytish / almashish","Returns / Exchange")
+                                        translate("Возврат/обмен", "Qaytish / almashish", "Returns / Exchange")
                                     }
-                                    </Link></li>
+                                </Link></li>
                                 <li><Link to="/">FAQs</Link></li>
                                 <li><Link to="/">
                                     {
-                                        translate("Поддержка продукта","Mahsulotni qo'llab-quvvatlash","Product Support")
+                                        translate("Поддержка продукта", "Mahsulotni qo'llab-quvvatlash", "Product Support")
                                     }
-                                    </Link></li>
+                                </Link></li>
                             </ul>
                         </div>}
 
