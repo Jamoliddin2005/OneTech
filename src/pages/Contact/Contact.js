@@ -99,40 +99,22 @@ const Contact = () => {
                         </form>
                     </div>
                 </div>
-                <div className={classes.Locations}>
-                    <h4>
-                        <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-                            width="25px" height="25px" viewBox="0 0 395.71 395.71" xmlSpace="preserve">
-                            <g>
-                                <path d="M197.849,0C122.131,0,60.531,61.609,60.531,137.329c0,72.887,124.591,243.177,129.896,250.388l4.951,6.738
-		c0.579,0.792,1.501,1.255,2.471,1.255c0.985,0,1.901-0.463,2.486-1.255l4.948-6.738c5.308-7.211,129.896-177.501,129.896-250.388
-		C335.179,61.609,273.569,0,197.849,0z M197.849,88.138c27.13,0,49.191,22.062,49.191,49.191c0,27.115-22.062,49.191-49.191,49.191
-		c-27.114,0-49.191-22.076-49.191-49.191C148.658,110.2,170.734,88.138,197.849,88.138z"/>
-                            </g>
-                        </svg>
-                        {translate("Локации", "Joylashuvlar", "Locations")}
-                        <div className={classes.location_div}>
-                            {location.map((item, index) => (
-                                <p key={index} onClick={() => {
-                                    window.open(item.url)
-                                }}>
-                                    <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-                                        width="10px" height="10px" viewBox="0 0 395.71 395.71" xmlSpace="preserve" style={{ marginRight: "5px" }}>
-                                        <g>
-                                            <path d="M197.849,0C122.131,0,60.531,61.609,60.531,137.329c0,72.887,124.591,243.177,129.896,250.388l4.951,6.738
-		c0.579,0.792,1.501,1.255,2.471,1.255c0.985,0,1.901-0.463,2.486-1.255l4.948-6.738c5.308-7.211,129.896-177.501,129.896-250.388
-		C335.179,61.609,273.569,0,197.849,0z M197.849,88.138c27.13,0,49.191,22.062,49.191,49.191c0,27.115-22.062,49.191-49.191,49.191
-		c-27.114,0-49.191-22.076-49.191-49.191C148.658,110.2,170.734,88.138,197.849,88.138z"/>
-                                        </g>
-                                    </svg>
-                                    {item.name}</p>
-                            ))}
-                        </div></h4>
 
-                </div>
+            </div>
+            <div className={classes.Locations}>
+                <h4>
+                    {translate("Локации", "Joylashuvlar", "Locations")} <i class="fa-solid fa-angle-down"></i>
+                    <div className={classes.location_div}>
+                        {location.map((item, index) => (
+                            <p key={index} onClick={() => {
+                                window.open(item.url)
+                            }}>
+                                {item.name}</p>
+                        ))}
+                    </div></h4>
+
             </div>
             <div className="map">
-                <div className={classes.map_top}></div>
                 <div className="map_yandex">
                     <div className={classes.map_yandex}><iframe src="https://yandex.uz/map-widget/v1/-/CCUVbQVz~B" width="100%" height="400" frameBorder="1" allowFullScreen={true} style={{ position: 'relative' }}></iframe></div>
                 </div>
