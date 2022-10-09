@@ -1,8 +1,10 @@
 import axios from 'axios';
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { toast } from 'react-toastify';
 import { BASE_URL } from '../../constants/BASE_URL';
 import classes from './Contact.module.css';
+import translate from '../../services/translate'
+
 
 const Contact = () => {
 
@@ -10,7 +12,19 @@ const Contact = () => {
     const [email, setEmail] = useState("")
     const [phoneNumber, setPhoneNumber] = useState("")
     const [message, setMessage] = useState("")
+    const [location, setLocation] = useState([""])
 
+    useEffect(() => {
+        const GetLocation = async () => {
+            fetch(`${BASE_URL}contact/location`)
+                .then((response) => response.json())
+                .then(res => {
+                    setLocation(res);
+                })
+                .catch(err => toast.error("ERROR"))
+        }
+        GetLocation()
+    }, [])
 
 
     const SubmitContact = async (e) => {
@@ -59,40 +73,44 @@ const Contact = () => {
                         </div>
                     </div>
                     <div className={classes.get_in_touch}>
-                        <h2>Get in Touch</h2>
-                        <form onSubmit={(e) => {
-                            e.preventDefault();
-                        }}>
-                            <div className={classes.inputs}>
-                                <input type="text" name='name' className={classes.inp} placeholder='Your name' required={true} value={name} onChange={(e) => {
-                                    setName(e.target.value)
-                                }} />
-                                <input type="email" name='email' className={classes.inp} placeholder='Your email' required={true} value={email} onChange={(e) => {
-                                    setEmail(e.target.value)
-                                }} />
-                                <input type="number" name='name' className={classes.inp} placeholder='Your phone number' required={true} value={phoneNumber} onChange={(e) => {
-                                    setPhoneNumber(e.target.value)
-                                }} />
-                            </div>
-                            <div className={classes.textarea}>
-                                <textarea name="message" id="" rows="4" placeholder='Message' value={message} onChange={(e) => {
-                                    setMessage(e.target.value)
-                                }} ></textarea>
-                            </div>
-                            <button className={classes.btn} onClick={(e) => {
-                                SubmitContact()
-                            }}>Send Message</button>
-                        </form>
+                        <div className={classes.Locations}>
+                            <h4>{translate("Локации", "Joylashuvlar", "Locations")}</h4>
+                            {location.map((item, index) => (
+                                <p key={index} onClick={() => {
+                                    window.open(item.url)
+                                }}>{item.name}</p>
+                            ))}
+                        </div>
+                        <div className={classes.Right_Form}>
+                            <h2>Get in Touch</h2>
+                            <form onSubmit={(e) => {
+                                e.preventDefault();
+                            }}>
+                                <div className={classes.inputs}>
+                                    <input type="text" name='name' className={classes.inp} placeholder='Your name' required={true} value={name} onChange={(e) => {
+                                        setName(e.target.value)
+                                    }} />
+                                    <input type="email" name='email' className={classes.inp} placeholder='Your email' required={true} value={email} onChange={(e) => {
+                                        setEmail(e.target.value)
+                                    }} />
+                                    <input type="number" name='name' className={classes.inp} placeholder='Your phone number' required={true} value={phoneNumber} onChange={(e) => {
+                                        setPhoneNumber(e.target.value)
+                                    }} />
+                                </div>
+                                <div className={classes.textarea}>
+                                    <textarea name="message" id="" rows="4" placeholder='Message' value={message} onChange={(e) => {
+                                        setMessage(e.target.value)
+                                    }} ></textarea>
+                                </div>
+                                <button className={classes.btn} onClick={(e) => {
+                                    SubmitContact()
+                                }}>Send Message</button>
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>
 
-            <div className="map">
-                <div className={classes.map_top}></div>
-                <div className="map_yandex">
-                    <div className={classes.map_yandex}><iframe src="https://yandex.uz/map-widget/v1/-/CCUVbQVz~B" width="100%" height="400" frameBorder="1" allowFullScreen={true} style={{ position: 'relative' }}></iframe></div>
-                </div>
-            </div>
         </>
     )
 }
