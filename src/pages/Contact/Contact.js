@@ -103,7 +103,7 @@ const Contact = () => {
             </div>
             <div className={classes.Locations}>
                 <h4>
-                    {translate("Локации", "Joylashuvlar", "Locations")} <i class="fa-solid fa-angle-down"></i>
+                    {translate("Локации", "Joylashuvlar", "Locations")} <i className="fa-solid fa-angle-down"></i>
                     <div className={classes.location_div}>
                         {location.map((item, index) => (
                             <p key={index} onClick={() => {
