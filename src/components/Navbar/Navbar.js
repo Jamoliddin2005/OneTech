@@ -134,11 +134,12 @@ export default function Navbar({
                   <a href="https://t.me/ibragimovxusan" target="_blank" rel="noopener noreferrer"><i className="fa-brands fa-telegram"></i></a>
                 </li>
                 <li>
-                  <a href="https://www.google.com/" target="_blank" rel="noopener noreferrer"><i className="fa-brands fa-google"></i></a>
-                </li>
-                <li>
                   <a href="https://www.instagram.com/ibragimovxusan_/" target="_blank" rel="noopener noreferrer"><i className="fa-brands fa-instagram"></i></a>
                 </li>
+                <li>
+                  <a href="https://www.google.com/" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-whatsapp"></i></a>
+                </li>
+
               </ul>
             </div>
             <div className={classes.Right}>
