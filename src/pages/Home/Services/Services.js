@@ -4,22 +4,22 @@ import classes from "./Services.module.css";
 function Services() {
   const services = [
     {
-      img: "https://preview.colorlib.com/theme/onetech/images/xchar_1.png.pagespeed.ic.h2KEJkhHgI.webp",
+      img: "/images/char_1.png.webp",
       text: "Free Delivery",
       from: "from $50",
     },
     {
-      img: "https://preview.colorlib.com/theme/onetech/images/xchar_2.png.pagespeed.ic.GcdwqLhVI3.webp",
+      img: "/images/char_1.png.webp",
       text: "Free Delivery",
       from: "from $50",
     },
     {
-      img: "https://preview.colorlib.com/theme/onetech/images/xchar_3.png.pagespeed.ic.1gBzPN2QLp.webp",
+      img: "/images/char_1.png.webp",
       text: "Free Delivery",
       from: "from $50",
     },
     {
-      img: "https://preview.colorlib.com/theme/onetech/images/xchar_4.png.pagespeed.ic.clS3Q5Lx_m.webp",
+      img: "/images/char_1.png.webp",
       text: "Free Delivery",
       from: "from $50",
     },

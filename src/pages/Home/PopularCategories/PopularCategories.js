@@ -9,52 +9,49 @@ function PopularCategories() {
   // array
   const PopularCategories = [
     {
-      img: "https://preview.colorlib.com/theme/onetech/images/xpopular_1.png.pagespeed.ic.iakLDOhA7r.webp",
+      img: "/images/popular_1.png.webp",
       text: "Smartphones & Tablets",
     },
     {
-      img: "https://preview.colorlib.com/theme/onetech/images/xpopular_2.png.pagespeed.ic.2dscQlBLuy.webp",
+      img: "/images/popular_1.png.webp",
       text: "Computers & Laptops",
     },
     {
-      img: "https://preview.colorlib.com/theme/onetech/images/xpopular_3.png.pagespeed.ic.0uu5Dfk2Gh.webp",
+      img: "/images/popular_1.png.webp",
       text: "Gadgets",
     },
     {
-      img: "https://preview.colorlib.com/theme/onetech/images/xpopular_4.png.pagespeed.ic.2oShzKU_RW.webp",
+      img: "/images/popular_1.png.webp",
       text: "Video Games & Consoles",
     },
     {
-      img: "https://preview.colorlib.com/theme/onetech/images/xpopular_5.png.pagespeed.ic.N9JFcEegtU.webp",
+      img: "/images/popular_1.png.webp",
       text: "Accessories",
     },
     {
-      img: "https://preview.colorlib.com/theme/onetech/images/xpopular_5.png.pagespeed.ic.N9JFcEegtU.webp",
+      img: "/images/popular_1.png.webp",
       text: "Accessories",
     },
     {
-      img: "https://preview.colorlib.com/theme/onetech/images/xpopular_5.png.pagespeed.ic.N9JFcEegtU.webp",
+      img: "/images/popular_1.png.webp",
       text: "Accessories",
     },
     {
-      img: "https://preview.colorlib.com/theme/onetech/images/xpopular_5.png.pagespeed.ic.N9JFcEegtU.webp",
+      img: "/images/popular_1.png.webp",
       text: "Accessories",
     },
   ];
 
   // handler
-  useEffect(
-    (e) => {
-      if (window.innerWidth > 768 && window.innerWidth < 992) {
-        setSlide(4);
-      } else if (window.innerWidth < 768 && window.innerWidth > 576) {
-        setSlide(2);
-      } else if (window.innerWidth < 576) {
-        setSlide(1);
-      }
-    },
-    []
-  );
+  useEffect((e) => {
+    if (window.innerWidth > 768 && window.innerWidth < 992) {
+      setSlide(4);
+    } else if (window.innerWidth < 768 && window.innerWidth > 576) {
+      setSlide(2);
+    } else if (window.innerWidth < 576) {
+      setSlide(1);
+    }
+  }, []);
 
   function SampleNextArrow(props) {
     const { className, style, onClick } = props;

@@ -6,23 +6,23 @@ import "./Slider.css";
 function PopularCategories() {
   const PopularCategories = [
     {
-      img: "https://preview.colorlib.com/theme/onetech/images/xpopular_1.png.pagespeed.ic.iakLDOhA7r.webp",
+      img: "/images/popular_1.png.webp",
       text: "Smartphones & Tablets",
     },
     {
-      img: "https://preview.colorlib.com/theme/onetech/images/xpopular_2.png.pagespeed.ic.2dscQlBLuy.webp",
+      img: "/images/popular_1.png.webp",
       text: "Computers & Laptops",
     },
     {
-      img: "https://preview.colorlib.com/theme/onetech/images/xpopular_3.png.pagespeed.ic.0uu5Dfk2Gh.webp",
+      img: "/images/popular_1.png.webp",
       text: "Gadgets",
     },
     {
-      img: "https://preview.colorlib.com/theme/onetech/images/xpopular_4.png.pagespeed.ic.2oShzKU_RW.webp",
+      img: "/images/popular_1.png.webp",
       text: "Video Games & Consoles",
     },
     {
-      img: "https://preview.colorlib.com/theme/onetech/images/xpopular_5.png.pagespeed.ic.N9JFcEegtU.webp",
+      img: "/images/popular_1.png.webp",
       text: "Accessories",
     },
   ];
@@ -72,10 +72,10 @@ function PopularCategories() {
           <div className={classes.PopularCategoryRight}>
             <Slider {...settings}>
               {PopularCategories.map((item, index) => (
-                <div  key={index}>
-                 <div>
-                 <img src={item.img} alt="" />
-                 </div>
+                <div key={index}>
+                  <div>
+                    <img src={item.img} alt="" />
+                  </div>
                 </div>
               ))}
             </Slider>
