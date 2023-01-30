@@ -65,7 +65,7 @@ function App() {
   const GetProducts = () => {
     setLoading(true)
     fetch(
-      `${BASE_URL}product/5product-list/`, {
+      `${BASE_URL}product/5product/`, {
       headers: {
         Authorization: "Bearer " + token
       },
@@ -75,11 +75,14 @@ function App() {
       .then((response) => {
         setAllProducts(response.results)
         const count = []
-        for (var i = 0; i < response.results.length; i++) {
-          if (Number(response.results[i].category[0].id) === Number(window.localStorage.getItem("categoryPage"))) {
-            count.push(response.results[i])
+        if (response.results) {
+          for (var i = 0; i < response.results.length; i++) {
+            if (Number(response.results[i].category[0].id) === Number(window.localStorage.getItem("categoryPage"))) {
+              count.push(response.results[i])
+            }
           }
         }
+
         setProducts(count)
         setLoading(false)
       });

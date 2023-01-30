@@ -6,9 +6,9 @@ import Products from './Products/Products'
 import classes from './Shop.module.css'
 
 const Shop = ({ token }) => {
-    const [text, setText] = useState(()=> {
-        return translate("Смартфоны и Планшеты","Smartfonlar va Plnashetlar","Smartphones & Tablets")
-      })
+    const [text] = useState(() => {
+        return translate("Смартфоны и Планшеты", "Smartfonlar va Planshetlar", "Smartphones & Tablets")
+    })
     return (
         <div className={classes.Shop}>
             <Hero text={text} img='url(/images/shop_background.jpg.webp)' rgba='linear-gradient(#fff,#cde4f1)' />

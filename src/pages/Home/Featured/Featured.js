@@ -5,13 +5,13 @@ import "./Feature.css";
 import classes from "./Featured.module.css";
 import Loading from "../../../components/Loading/Loading"
 import Loading2 from "../../../components/Loading2/Loading2";
-import { toast } from "react-toastify";
 import { BASE_URL } from "../../../constants/BASE_URL";
 
 const Featured = () => {
   // states
   const [cards, setCards] = useState([""]);
   const [loading1, setLoading] = useState(false)
+
 
 
   useEffect(() => {
@@ -23,7 +23,7 @@ const Featured = () => {
           setCards(res)
           setLoading(false)
         })
-        .catch(err => toast.error("ERROR"))
+        .catch(err => console.log(err))
     }
     GetNewProducts()
   }, [])
@@ -96,8 +96,7 @@ const Featured = () => {
     cssEase: "ease",
     customPaging: (e) => <div style={style}></div>,
   };
-
-  // return
+  // return 
   return (
     <div className="container" style={loading1 ? { position: "relative", paddingTop: "100px" } : { position: "relative" }}>
       {loading1 ? <Loading /> :
@@ -115,7 +114,7 @@ const Featured = () => {
                 {card.product_images ?
                   <Link to={`/shop/product/${card.id}`} onClick={() => {
                     window.scrollTo(0, 0)
-                  }}> <img src={card.product_images[0].image} alt="" /></Link>
+                  }}> <img src={card.product_images[0].get_image_url} alt="" /></Link>
                   : <Loading2 />}
 
                 <p className={classes.bigСardPrice}>{card.value} UZS</p>

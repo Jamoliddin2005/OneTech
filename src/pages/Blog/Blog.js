@@ -9,8 +9,8 @@ import translate from "../../services/translate";
 function Blog({ blogId, setBlogId }) {
   const [blog, setBlog] = useState([""]);
   const [loading, setLoading] = useState(false);
-  const [text, setText] = useState(()=> {
-    return translate("Блог","Blog","Blog")
+  const [text] = useState(() => {
+    return translate("Блог", "Blog", "Blog")
   })
 
   useEffect(() => {
@@ -40,7 +40,7 @@ function Blog({ blogId, setBlogId }) {
             <Loading />
           ) : (
             <div className={classes.blog_carts}>
-              {blog.map((item, index) => {
+              {blog ? blog.map((item, index) => {
                 return (
                   <BlogCart
                     key={index}
@@ -51,7 +51,8 @@ function Blog({ blogId, setBlogId }) {
                     blogId={blogId}
                   />
                 );
-              })}
+              }) : <h3>{translate("Нет продукты на странице Блога", "Blog sahifasida mahsulot emas", "Not a product on a blog page")}</h3>}
+
             </div>
           )}
         </div>

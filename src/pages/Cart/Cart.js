@@ -58,9 +58,9 @@ const Cart = ({
                         setMoney(false)
                         return toast.success(res.data.message)
                     })
-                    .catch(err => toast.error("ERROR"))
+                    .catch(err => console.log(err))
             })
-            .catch(err => toast.error("ERROR"))
+            .catch(err => console.log(err))
 
     }
 
@@ -97,7 +97,7 @@ const Cart = ({
                                                 Object.values(JSON.parse(productsInCart)).map((item, index) => (
                                                     <li className={classes.cart_item} key={index}>
                                                         <div className={classes.cart_item_inline_img}>
-                                                            <img src={item.product_images[0].image} alt="" />
+                                                            <img src={item.product_images[0].get_image_url} alt="" />
                                                         </div>
                                                         <div className={classes.cart_item_inlines}>
                                                             <div className={classes.cart_item_inline}>

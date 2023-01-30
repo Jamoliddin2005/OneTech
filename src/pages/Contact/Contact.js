@@ -21,7 +21,7 @@ const Contact = () => {
                 .then(res => {
                     setLocation(res);
                 })
-                .catch(err => toast.error("ERROR"))
+                .catch(err => console.log(err))
         }
         GetLocation()
     }, [])

@@ -6,12 +6,9 @@ import { BASE_URL } from "../../constants/BASE_URL";
 import translate from "../../services/translate";
 export default function Navbar({
   home,
-  setHome,
   setIsRegister,
   setIsLogin,
   token,
-  cart,
-  categoryId,
   setCategoryId,
   GetProducts,
   totalCoastGet,
@@ -36,7 +33,6 @@ export default function Navbar({
     };
 
     GetCategories();
-
     const Language = () => {
       const lan = language;
       const target = lan.splice(
@@ -241,17 +237,7 @@ export default function Navbar({
                   onChange={handleFilter}
                 />
               </div>
-              {/* <div className={classes.Category_Search}>
-                {loading ? <Loading2 /> :
-                  <select name="" id="">
-                    {categories.map((item, index) => (
-                      <option value={item.name} key={index}>
-                        {item.name}
-                      </option>
-                    ))}
-                  </select>
-                }
-              </div> */}
+
               <button className={classes.SearchIcon}>
                 <img src="/images/search.png.webp" alt="" />
               </button>
@@ -264,7 +250,7 @@ export default function Navbar({
                       key={index}
                       onClick={() => setFilteredDate([])}
                     >
-                      <img src={item.product_images[0].image} alt="" />
+                      <img src={item.product_images[0].get_image_url} alt="" />
                       <h5>{item.name}</h5>
                       <p>{item.value}</p>
                     </Link>
@@ -370,7 +356,7 @@ export default function Navbar({
                   key={index}
                   onClick={() => setFilteredDate([])}
                 >
-                  <img src={item.product_images[0].image} alt="" />
+                  <img src={item.product_images[0].get_image_url} alt="" />
                   <h5>{item.name}</h5>
                   <p>{item.value}</p>
                 </Link>
@@ -402,42 +388,43 @@ export default function Navbar({
                 {loading ? (
                   <Loading2 />
                 ) : (
-                  categories.map((item, index) => (
-                    <div className={classes.hovers} key={index}>
-                      <Link
-                        onClick={() => {
-                          window.localStorage.setItem("categoryPage", item.id);
-                          GetProducts();
-                          setCategoryId(item.id);
-                        }}
-                        to={`/category/${item.id}`}
-                      >
-                        {item.name}
-                      </Link>
-                      {item.children ? (
-                        <div className={classes.hover_categories}>
-                          {item.children.map((item1, index1) => (
-                            <NavLink
-                              onClick={() => {
-                                window.localStorage.setItem(
-                                  "categoryPage",
-                                  item1.id
-                                );
-                                GetProducts();
-                                window.scrollTo(0, 0);
-                              }}
-                              to={`/category/${item1.id}`}
-                              key={index1}
-                            >
-                              {item1.name}
-                            </NavLink>
-                          ))}
-                        </div>
-                      ) : (
-                        <Loading2 />
-                      )}
-                    </div>
-                  ))
+                  categories ?
+                    categories.map((item, index) => (
+                      <div className={classes.hovers} key={index}>
+                        <Link
+                          onClick={() => {
+                            window.localStorage.setItem("categoryPage", item.id);
+                            GetProducts();
+                            setCategoryId(item.id);
+                          }}
+                          to={`/category/${item.id}`}
+                        >
+                          {item.name}
+                        </Link>
+                        {item.children ? (
+                          <div className={classes.hover_categories}>
+                            {item.children.map((item1, index1) => (
+                              <NavLink
+                                onClick={() => {
+                                  window.localStorage.setItem(
+                                    "categoryPage",
+                                    item1.id
+                                  );
+                                  GetProducts();
+                                  window.scrollTo(0, 0);
+                                }}
+                                to={`/category/${item1.id}`}
+                                key={index1}
+                              >
+                                {item1.name}
+                              </NavLink>
+                            ))}
+                          </div>
+                        ) : (
+                          <Loading2 />
+                        )}
+                      </div>
+                    )) : ""
                 )}
               </div>
             </div>

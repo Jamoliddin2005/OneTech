@@ -83,7 +83,7 @@ function Categories({ token, categoryId, loading, products }) {
                         )}
                         {item.product_images ? (
                           <img
-                            src={item.product_images[0].image}
+                            src={item.product_images[0].get_image_url}
                             alt="There are the img"
                           />
                         ) : (

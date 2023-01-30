@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from "react";
 import classes from "./Header.module.css";
 import Slider from "react-slick";
-import Loading2 from "../../../components/Loading2/Loading2"
-import { toast } from "react-toastify";
+import Loading2 from "../../../components/Loading2/Loading2" 
 import { BASE_URL } from "../../../constants/BASE_URL";
 import './Header.css'
 
@@ -18,7 +17,7 @@ function Header() {
           setBanner(res)
           setLoading(false)
         })
-        .catch(err => toast.error("ERROR"))
+        .catch(err => console.log(err))
     }
     GetHomeBanner()
   }, [])

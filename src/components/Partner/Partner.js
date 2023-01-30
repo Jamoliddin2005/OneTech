@@ -34,7 +34,7 @@ const Partner = () => {
           setPartners(res.results)
           setLoading(false)
         })
-        .catch(err => toast.error("ERROR"))
+        .catch(err => console.log(err))
     }
     GetPartners()
   }, [])
@@ -57,13 +57,13 @@ const Partner = () => {
           <div className={classes.slideBox}>
 
             {loading ? <Loading2 /> : <Slider {...settings}>
-              {partners.map((img, index) => {
+              {partners ? partners.map((img, index) => {
                 return (
                   <div key={index} className={classes.sild}>
                     <img src={img.image} alt="img" />
                   </div>
                 );
-              })}
+              }) : ""}
             </Slider>}
 
           </div>

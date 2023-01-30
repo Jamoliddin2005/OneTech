@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Loading2 from "../../../components/Loading2/Loading2";
 import classes from "./Header.module.css";
-import { toast } from "react-toastify"; 
+import { toast } from "react-toastify";
 import { BASE_URL } from "../../../constants/BASE_URL";
 
 const Header = ({ product, category1,
@@ -9,7 +9,6 @@ const Header = ({ product, category1,
 }) => {
   const [category, setCategory] = useState("")
   const [categoryLoading, setCategoryLoading] = useState(true)
-
   const GetCategory = async () => {
     setCategoryLoading(true)
     fetch(`${BASE_URL}product/3category/${category1}`)
@@ -82,12 +81,12 @@ const Header = ({ product, category1,
                     }}
                     className={classes.trioImg}
                   >
-                    <img src={img.image} alt="img" />
+                    <img src={img.get_image_url} alt="img" />
                   </div>
                 ))}
               </div>
               <div className={classes.singleImg}>
-                <img src={product.product_images[activeImg].image} alt="img" />
+                <img src={product.product_images[activeImg].get_image_url} alt="img" />
               </div>
             </> : ""}
 

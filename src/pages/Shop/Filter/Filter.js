@@ -20,9 +20,12 @@ const Filter = () => {
         .then((response) => response.json())
         .then(res => {
           setCategory(res.results)
-          for (var i = 0; i < res.results.length; i++) {
-            setCategorySub(res.results[i].children);
+          if (res.results) {
+            for (var i = 0; i < res.results.length; i++) {
+              setCategorySub(res.results[i].children);
+            }
           }
+
           setLoading(false)
         })
     }
@@ -39,14 +42,14 @@ const Filter = () => {
         ) : (
           <>
             {
-              category.map((a, index) => (
+              category ? category.map((a, index) => (
                 <Link to={`/category/${a.id}`} className={classes.link} key={index} onClick={(e) => {
                   window.scrollTo(0, 0)
                   window.localStorage.setItem("categoryPage", a.id)
                 }}>
                   {a.name}
                 </Link>
-              ))
+              )) : ""
             }
             {categorySub.map((a, index) => (
               <Link to={`/category/${a.id}`} className={classes.link} key={index} onClick={(e) => {

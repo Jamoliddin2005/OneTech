@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import classes from "./PopularCategories.module.css";
 import Slider from "react-slick";
-// import { Link } from "react-router-dom";
 import "./Slider.css";
 function PopularCategories() {
   const [slide, setSlide] = useState(5);

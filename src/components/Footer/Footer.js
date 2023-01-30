@@ -22,7 +22,7 @@ function Footer() {
                     setCategories(res.results)
                     setLoading(false)
                 })
-                .catch(err => toast.error("ERROR"))
+                .catch(err => console.log(err))
         }
         const GetLocation = async () => {
             fetch(`${BASE_URL}contact/location`)
@@ -30,7 +30,7 @@ function Footer() {
                 .then(res => {
                     setLocation(res);
                 })
-                .catch(err => toast.error("ERROR"))
+                .catch(err => console.log(err))
         }
         GetCategories()
         GetLocation()
@@ -137,12 +137,14 @@ function Footer() {
                                         translate("Найдите быстро", "Tezroq toping", "Find it Fast")
                                     }
                                 </h4>
-                                {categories.map((item, index) => (
-                                    <li key={index}>
-                                        <a href={`/category/${item.id}`}>
-                                            {item.name}
-                                        </a></li>
-                                ))}
+                                {
+                                    categories ? categories.map((item, index) => (
+                                        <li key={index}>
+                                            <a href={`/category/${item.id}`}>
+                                                {item.name}
+                                            </a></li>
+                                    )) : ""
+                                }
                             </ul>
                             <ul>
                                 <h4>
