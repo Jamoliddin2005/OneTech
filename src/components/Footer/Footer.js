@@ -38,7 +38,7 @@ function Footer() {
 
   const Subscribe = async (e) => {
     await axios
-      .post(`${process.env.REACT_APP_URL}contact/subscribe/`, {
+      .post(`${process.env.REACT_APP_URL}ru/contact/subscribe/`, {
         email: email,
       })
       .then((res) => console.log(res))
