@@ -6,6 +6,7 @@ import Loading from '../../components/Loading/Loading'
 import { BASE_URL } from '../../constants/BASE_URL'
 import classes from './Cart.module.css'
 import translate from '../../services/translate'
+import Currency from '../../services/Currency'
 
 
 const Cart = ({
@@ -34,7 +35,7 @@ const Cart = ({
         let quantity = []
         let productIds = []
         for (var i = 0; i < Object.values(JSON.parse(productsInCart)).length; i++) {
-            quantity.push(Object.values(JSON.parse(productsInCart))[i].in_cart * Object.values(JSON.parse(productsInCart))[i].value);
+            quantity.push(Object.values(JSON.parse(productsInCart))[i].inCart * Object.values(JSON.parse(productsInCart))[i].value);
             productIds.push(Object.values(JSON.parse(productsInCart))[i].id);
         }
 
@@ -64,13 +65,6 @@ const Cart = ({
 
     }
 
-
-    const nameCart = (e) => {
-        if (e.length > 10) {
-            return e.slice(0, 9) + "..."
-        }
-    }
-
     return (
         <div className={classes.Cart}>
             <div className="container">
@@ -86,12 +80,16 @@ const Cart = ({
                                     <div className={classes.cart_items}>
                                         <ul>
                                             <li className={classes.cart_inline_names}>
-                                                <p className={classes.cart_item_inline_name}>     {translate("Картина", "Rasm", "Photo")} </p>
-                                                <p className={classes.cart_item_inline_name}>     {translate("Имя", "Nomi", "Name")} </p>
-                                                <p className={classes.cart_item_inline_name}>     {translate("Цена", "Narx", "Price")} </p>
-                                                <p className={classes.cart_item_inline_name}>     {translate("Категория", "Kategoriya", "Category")} </p>
-                                                <p className={classes.cart_item_inline_name}>     {translate("Масса", "Og'irlik", "weight")} </p>
-                                                <p className={classes.cart_item_inline_name}>     {translate("Количество", "Soni", "Total")} </p>
+                                                <p className={classes.cart_item_inline_name}>
+                                                    {translate("Картина", "Rasm", "Photo")} </p>
+                                                <p className={classes.cart_item_inline_name}>
+                                                    {translate("Имя", "Nomi", "Name")} </p>
+                                                <p className={classes.cart_item_inline_name}>
+                                                    {translate("Цена", "Narx", "Price")} </p>
+                                                <p className={classes.cart_item_inline_name}>
+                                                    {translate("Категория", "Kategoriya", "Category")} </p>
+                                                <p className={classes.cart_item_inline_name}>
+                                                    {translate("Количество", "Soni", "Total")} </p>
                                             </li>
                                             {
                                                 Object.values(JSON.parse(productsInCart)).map((item, index) => (
@@ -101,16 +99,13 @@ const Cart = ({
                                                         </div>
                                                         <div className={classes.cart_item_inlines}>
                                                             <div className={classes.cart_item_inline}>
-                                                                <h4 className={name.join(' ')}>{nameCart(item.name)}</h4>
+                                                                <h4 className={name.join(' ')}>{item.name.slice(0, 9) + "..."}</h4>
                                                             </div>
                                                             <div className={rightText.join(' ')}>
-                                                                <h4 className={classes.cart_item_inline_value}>{item.value}</h4>
+                                                                <h4 className={classes.cart_item_inline_value}>{Currency(item.price)} UZS</h4>
                                                             </div>
                                                             <div className={rightText.join(' ')}>
-                                                                <h4 className={classes.cart_item_inline_value}>{item.category[0].name}</h4>
-                                                            </div>
-                                                            <div className={rightText.join(' ')}>
-                                                                <h4 className={classes.cart_item_inline_value}>{item.capacity}</h4>
+                                                                <h4 className={classes.cart_item_inline_value}>{item.category[0].title.slice(0, 9) + "..."}</h4>
                                                             </div>
                                                             <div className={rightText.join(' ')}>
                                                                 <div className={classes.cartnumber}>
@@ -120,7 +115,7 @@ const Cart = ({
                                                                             minusNumber(item);
                                                                         }}
                                                                     > - </button>
-                                                                    <div className={classes.number}>{item.in_cart}</div>
+                                                                    <div className={classes.number}>{item.inCart}</div>
                                                                     <button
                                                                         className={classes.plus}
                                                                         onClick={(e) => {
@@ -140,7 +135,7 @@ const Cart = ({
                                         <p className={classes.order_total_name}>
                                             {translate("Итоговая цена:", "Jami:", "Order Total:")}
                                         </p>
-                                        <h3 className={classes.order_total_value}>{totalCoastGet} UZS</h3>
+                                        <h3 className={classes.order_total_value}>{Currency(totalCoastGet)} UZS</h3>
                                     </div>
 
                                     <div className={classes.add_cart_btns}>

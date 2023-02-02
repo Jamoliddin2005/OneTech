@@ -41,32 +41,37 @@
     --container: 960px;
   }
 }
+
 @media (max-width: 970px) {
   :root {
     --container: 950px;
   }
 }
+
 @media (max-width: 960px) {
   :root {
     --container: 930px;
   }
 }
+
 @media (max-width: 940px) {
   :root {
     --container: 920px;
   }
 }
+
 @media (max-width: 920px) {
   :root {
     --container: 90%;
   }
 }
+
 @media (max-width: 576px) {
   :root {
     --container: 100%;
   }
 
-  .container{
+  .container {
     padding: 0px 15px;
   }
 }

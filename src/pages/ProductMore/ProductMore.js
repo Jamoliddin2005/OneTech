@@ -31,7 +31,7 @@ function ProductMore({ token,
     const GetPorduct = async () => {
       fetch(`${BASE_URL}product/5product/${Number(url)}`)
         .then((res) => res.json())
-        .then((res) => {
+        .then((res) => { 
           setCategory(res.category[0].id)
           setProduct(res)
           setLoading(false)

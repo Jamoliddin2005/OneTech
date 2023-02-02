@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import classes from "./Header.module.css";
 import Slider from "react-slick";
-import Loading2 from "../../../components/Loading2/Loading2" 
+import Loading2 from "../../../components/Loading2/Loading2"
 import { BASE_URL } from "../../../constants/BASE_URL";
 import './Header.css'
 

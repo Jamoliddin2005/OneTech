@@ -3,6 +3,8 @@ import Loading2 from "../../../components/Loading2/Loading2";
 import classes from "./Header.module.css";
 import { toast } from "react-toastify";
 import { BASE_URL } from "../../../constants/BASE_URL";
+import Curreny from "../../../services/Currency"
+import translate from "../../../services/translate"
 
 const Header = ({ product, category1,
   cartNumbers,
@@ -14,7 +16,7 @@ const Header = ({ product, category1,
     fetch(`${BASE_URL}product/3category/${category1}`)
       .then(res => res.json())
       .then(res => {
-        setCategory(res.name)
+        setCategory(res.title)
         setCategoryLoading(false)
       })
   }
@@ -36,7 +38,7 @@ const Header = ({ product, category1,
   }, [])
 
   // =========== O'zgaradigan state  
-  const [price] = useState(product.value ? Number(product.value) : 0);
+  const [price] = useState(product.price ? Number(product.price) : 0);
 
   // =========== O'zgarmas state
   const [heart, setHeart] = useState("#ccc");
@@ -103,12 +105,12 @@ const Header = ({ product, category1,
                 className={classes.form}
                 onSubmit={(e) => e.preventDefault()}
               >
-                <p className={classes.productPrice}>{price} <span className={classes.UZS}>UZS</span></p>
+                <p className={classes.productPrice}>{Curreny(product.price)} <span className={classes.UZS}>UZS</span></p>
                 <div className={classes.buyBtns}>
                   <button className={classes.buyBtn} onClick={(e) => {
                     cartNumbers(product);
                     toast.success("Product added")
-                  }}>Add to Cart</button>
+                  }}>{translate("Добавить в корзину", "Savatga qo'shish", "Add To Cart")}</button>
                   <button
                     className={classes.heartBtn}
                     onClick={onHeartHandler}

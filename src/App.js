@@ -56,6 +56,7 @@ function App() {
     CartGet();
   }, []);
 
+
   // Cateogry 
 
   const [loading, setLoading] = useState(false)
@@ -65,27 +66,22 @@ function App() {
   const GetProducts = () => {
     setLoading(true)
     fetch(
-      `${BASE_URL}product/5product/`, {
-      headers: {
-        Authorization: "Bearer " + token
-      },
-    }
-    )
+      `${BASE_URL}product/5product/`)
       .then((response) => response.json())
       .then((response) => {
-        setAllProducts(response.results)
+        setAllProducts(response)
         const count = []
-        if (response.results) {
-          for (var i = 0; i < response.results.length; i++) {
-            if (Number(response.results[i].category[0].id) === Number(window.localStorage.getItem("categoryPage"))) {
-              count.push(response.results[i])
+        if (response) {
+          for (var i = 0; i < response.length; i++) {
+            if (Number(response[i].category[0].id) === Number(window.localStorage.getItem("categoryPage"))) {
+              count.push(response[i])
             }
           }
         }
 
         setProducts(count)
         setLoading(false)
-      });
+      })
   }
   //category end
 
@@ -128,14 +124,15 @@ function App() {
     cartItems = JSON.parse(cartItems);
     if (cartItems != null) {
       if (cartItems[product.id] === undefined) {
+        product.inCart = 0;
         cartItems = {
           ...cartItems,
           [product.id]: product,
         };
       }
-      cartItems[product.id].in_cart += 1;
+      cartItems[product.id].inCart += 1
     } else {
-      product.in_cart = 1;
+      product.inCart = 1;
       cartItems = {
         [product.id]: product,
       };
@@ -149,11 +146,11 @@ function App() {
     if (cartCoast !== null) {
       localStorage.setItem(
         "totalCoast",
-        +cartCoast + Number(product.value)
+        +cartCoast + Number(product.price)
       );
       setTotalCoastGet(localStorage.getItem("totalCoast"));
     } else {
-      localStorage.setItem("totalCoast", Number(product.value));
+      localStorage.setItem("totalCoast", Number(product.price));
       setTotalCoastGet(localStorage.getItem("totalCoast"));
     }
   }
@@ -178,14 +175,14 @@ function App() {
           [product.id]: product,
         };
       }
-      cartItems[product.id].in_cart -= 1;
+      cartItems[product.id].inCart--;
     } else {
-      product.in_cart -= 1;
+      product.inCart--;
       cartItems = {
         [product.id]: product,
       };
     }
-    if (cartItems[product.id].in_cart < 1) {
+    if (cartItems[product.id].inCart < 1) {
       delete cartItems[product.id]
     }
     localStorage.setItem("productsInCart", JSON.stringify(cartItems));
@@ -197,11 +194,13 @@ function App() {
     if (cartCoast !== null) {
       localStorage.setItem(
         "totalCoast",
-        +cartCoast - Number(product.value)
+        +cartCoast - Number(product.price)
       );
       setTotalCoastGet(localStorage.getItem("totalCoast"));
     }
   }
+
+
 
 
   return (
@@ -281,6 +280,7 @@ function App() {
             />
           }
         />
+
         <Route
           path="/shop/product/*"
           element={<ProductMore

@@ -14,7 +14,7 @@ function Wishlist() {
         const getProducts = async (e) => {
             fetch(`${BASE_URL}product/5product/`)
                 .then((response) => response.json())
-                .then((res) => {
+                .then((res) => { 
                     setProducts(res.results.length);
                 });
         };

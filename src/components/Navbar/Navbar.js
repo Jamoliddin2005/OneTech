@@ -4,6 +4,7 @@ import { Link, NavLink } from "react-router-dom";
 import Loading2 from "../Loading2/Loading2";
 import { BASE_URL } from "../../constants/BASE_URL";
 import translate from "../../services/translate";
+import Currecy from "../../services/Currency";
 export default function Navbar({
   home,
   setIsRegister,
@@ -27,7 +28,7 @@ export default function Navbar({
       fetch(`${BASE_URL}product/3category/`)
         .then((response) => response.json())
         .then((res) => {
-          setCategory(res.results);
+          setCategory(res);
           setLoading(false);
         });
     };
@@ -51,6 +52,7 @@ export default function Navbar({
     if (allProducts) {
       const newFilter = allProducts.filter((value) => {
         if (value) {
+          console.log(value);
           return value.name.toLowerCase().includes(searchWord.toLowerCase());
         }
       });
@@ -244,6 +246,7 @@ export default function Navbar({
               {filteredDate.length !== 0 && (
                 <div className={classes.searchDiv}>
                   {filteredDate.splice(0, 15).map((item, index) => (
+
                     <Link
                       to={`/shop/product/${item.id}`}
                       className={classes.searched}
@@ -252,7 +255,7 @@ export default function Navbar({
                     >
                       <img src={item.product_images[0].get_image_url} alt="" />
                       <h5>{item.name}</h5>
-                      <p>{item.value}</p>
+                      <p>{Currecy(item.price)} UZS</p>
                     </Link>
                   ))}
                 </div>
@@ -312,7 +315,7 @@ export default function Navbar({
                   <h6>{translate("Корзинка", "Savatcha", "Cart")}</h6>
                   <p className={classes.text_cart}>
                     {" "}
-                    {totalCoastGet ? `$${totalCoastGet}` : "$0"}
+                    {totalCoastGet ? `${Currecy(totalCoastGet)} UZS` : "0 UZS"}
                   </p>
                 </div>
               </div>
@@ -358,7 +361,7 @@ export default function Navbar({
                 >
                   <img src={item.product_images[0].get_image_url} alt="" />
                   <h5>{item.name}</h5>
-                  <p>{item.value}</p>
+                  <p>{Currecy(item.price)} UZS</p>
                 </Link>
               ))}
             </div>
@@ -399,7 +402,7 @@ export default function Navbar({
                           }}
                           to={`/category/${item.id}`}
                         >
-                          {item.name}
+                          {item.title}
                         </Link>
                         {item.children ? (
                           <div className={classes.hover_categories}>
@@ -416,7 +419,7 @@ export default function Navbar({
                                 to={`/category/${item1.id}`}
                                 key={index1}
                               >
-                                {item1.name}
+                                {item1.title}
                               </NavLink>
                             ))}
                           </div>

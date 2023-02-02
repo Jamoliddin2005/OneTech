@@ -31,7 +31,7 @@ const Partner = () => {
       fetch(`${process.env.REACT_APP_URL}product/4brand-list/`)
         .then((res) => res.json())
         .then(res => {
-          setPartners(res.results)
+          setPartners(res)
           setLoading(false)
         })
         .catch(err => console.log(err))
@@ -54,18 +54,18 @@ const Partner = () => {
     <div className={classes.Partner}>
       <div className="container Partner">
         <div className={classes.shadowBox}>
-          <div className={classes.slideBox}>
-
-            {loading ? <Loading2 /> : <Slider {...settings}>
-              {partners ? partners.map((img, index) => {
-                return (
-                  <div key={index} className={classes.sild}>
-                    <img src={img.image} alt="img" />
-                  </div>
-                );
-              }) : ""}
-            </Slider>}
-
+          <div className={classes.slideBox}> 
+            {
+              loading ? <Loading2 /> : <Slider {...settings}>
+                {partners ? partners.map((img, index) => {
+                  return (
+                    <div key={index} className={classes.sild}>
+                      <img src={img.image} alt="img" />
+                    </div>
+                  );
+                }) : ""}
+              </Slider>
+            } 
           </div>
         </div>
       </div>

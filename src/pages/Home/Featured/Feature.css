@@ -1,7 +1,12 @@
 .slick-track {
   display: flex;
-  align-items: center;
   height: 100%;
+}
+
+.Partner .slick-track {
+  width: 100% !important;
+  align-items: center;
+  padding: 20px 0;
 }
 
 .slick-list {
@@ -38,8 +43,8 @@ ul.slick-dots li div:hover {
 }
 
 
-@media (max-width:768px){
-  ul.slick-dots{
+@media (max-width:768px) {
+  ul.slick-dots {
     padding-top: 40px;
   }
 }
