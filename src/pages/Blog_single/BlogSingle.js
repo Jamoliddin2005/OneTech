@@ -10,18 +10,13 @@ const BlogSingle = (props) => {
   const [loading, setLoading] = useState(true);
 
   const [blog, setBlog] = useState([""]);
-
   useEffect(() => {
     const getBlogFindOne = async () => {
       setLoading(true);
       fetch(
-        `${BASE_URL}blog/article/${window.location.href.split("/")[5]
+        `${BASE_URL}blog/article-rd/${window.location.href.split("/")[5]
         }`,
-        {
-          headers: {
-            Authorization: "Bearer " + props.token,
-          },
-        }
+
       )
         .then((result) => result.json())
         .then((res) => {
@@ -34,7 +29,7 @@ const BlogSingle = (props) => {
       fetch(`${BASE_URL}blog/article-list`)
         .then((res) => res.json())
         .then((res) => {
-          setBlog(res.results);
+          setBlog(res);
           setLoading(false);
         });
     };
@@ -42,8 +37,9 @@ const BlogSingle = (props) => {
     getBlogFindOne();
   }, []);
 
+
   return (
-    <div className={classes.BLOG_SINGLE}>
+    <div className={loading? classes.BLOG_SINGLE : ""}>
       {loading ? (
         <Loading />
       ) : (

@@ -101,7 +101,7 @@ const Contact = () => {
                 </div>
 
             </div>
-            <div className={classes.Locations}>
+            {location.length ? <div className={classes.Locations}>
                 <h4>
                     {translate("Локации", "Joylashuvlar", "Locations")} <i className="fa-solid fa-angle-down"></i>
                     <div className={classes.location_div}>
@@ -113,10 +113,21 @@ const Contact = () => {
                         ))}
                     </div></h4>
 
-            </div>
+            </div> : ""}
+
             <div className="map">
                 <div className="map_yandex">
-                    <div className={classes.map_yandex}><iframe src="https://yandex.uz/map-widget/v1/-/CCUVbQVz~B" width="100%" height="400" frameBorder="1" allowFullScreen={true} style={{ position: 'relative' }}></iframe></div>
+                    <div className={classes.map_yandex}>
+                        <iframe
+                            src="https://yandex.uz/map-widget/v1/-/CCUVbQVz~B"
+                            width="100%"
+                            height="400"
+                            frameBorder="1"
+                            allowFullScreen={true}
+                            style={{ position: 'relative' }}
+                        >
+                        </iframe>
+                    </div>
                 </div>
             </div>
 

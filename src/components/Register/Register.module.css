@@ -75,13 +75,14 @@
   left: 0;
 }
 
-@media (max-width: 515px){
-  .register{
+@media (max-width: 515px) {
+  .register {
     width: 90%;
-    padding: 10px 20px;
+    height: auto;
+    padding: 10px 20px; 
   }
 
-  .register button{
+  .register button {
     padding: 10px;
   }
 }

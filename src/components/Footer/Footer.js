@@ -19,10 +19,10 @@ function Footer() {
       fetch(`${BASE_URL}product/3category/`)
         .then((response) => response.json())
         .then((res) => {
-          setCategories(res.results);
+          setCategories(res);
           setLoading(false);
         })
-        .catch((err) => {});
+        .catch((err) => { });
     };
     const GetLocation = async () => {
       fetch(`${BASE_URL}contact/location`)
@@ -30,7 +30,7 @@ function Footer() {
         .then((res) => {
           setLocation(res);
         })
-        .catch((err) => {});
+        .catch((err) => { });
     };
     GetCategories();
     GetLocation();
@@ -41,8 +41,12 @@ function Footer() {
       .post(`${process.env.REACT_APP_URL}ru/contact/subscribe/`, {
         email: email,
       })
-      .then((res) => console.log(res))
-      .catch((err) => console.log(err));
+      .then((res) => {
+        toast.success(translate("Отправлен", "Yuborildi", "Sended"));
+      })
+      .catch((err) => {
+        return false;
+      });
   };
 
   return (
@@ -167,10 +171,10 @@ function Footer() {
                   </h4>
                   {categories
                     ? categories.map((item, index) => (
-                        <li key={index}>
-                          <a href={`/category/${item.id}`}>{item.name}</a>
-                        </li>
-                      ))
+                      <li key={index}>
+                        <a href={`/category/${item.id}`}>{item.title}</a>
+                      </li>
+                    ))
                     : ""}
                 </ul>
                 <ul>

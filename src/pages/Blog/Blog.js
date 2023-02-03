@@ -19,7 +19,8 @@ function Blog({ blogId, setBlogId }) {
       fetch(`${BASE_URL}blog/article-list`)
         .then((res) => res.json())
         .then((res) => {
-          setBlog(res.results);
+          console.log(res);
+          setBlog(res);
           setLoading(false);
         });
     };

@@ -31,7 +31,7 @@ function ProductMore({ token,
     const GetPorduct = async () => {
       fetch(`${BASE_URL}product/5product/${Number(url)}`)
         .then((res) => res.json())
-        .then((res) => { 
+        .then((res) => {
           setCategory(res.category[0].id)
           setProduct(res)
           setLoading(false)
@@ -41,7 +41,7 @@ function ProductMore({ token,
   }, []);
 
   return (
-    <div className={classes.productMore} style={loading ? { paddingTop: "300px" } : { padding: 0 }
+    <div className={classes.productMore} style={loading ? { paddingTop: "500px" } : { padding: 0 }
     }>
       {loading ? <Loading /> : <Header
         cartNumbers={cartNumbers}

@@ -52,7 +52,6 @@ export default function Navbar({
     if (allProducts) {
       const newFilter = allProducts.filter((value) => {
         if (value) {
-          console.log(value);
           return value.name.toLowerCase().includes(searchWord.toLowerCase());
         }
       });

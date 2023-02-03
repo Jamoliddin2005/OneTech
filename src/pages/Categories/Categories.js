@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Loading from "../../components/Loading/Loading";
+import Currecy from "../../services/Currency";
+import translate from "../../services/translate";
 import classes from "./Categories.module.css";
 
 function Categories({ token, categoryId, loading, products }) {
@@ -49,6 +51,7 @@ function Categories({ token, categoryId, loading, products }) {
     setDisabled2(true);
   };
 
+
   useEffect(() => {
     setProductsView(products.slice(next, prev));
   }, [loading]);
@@ -91,7 +94,7 @@ function Categories({ token, categoryId, loading, products }) {
                         )}
                       </div>
                       <div className={classes.product_info}>
-                        <h4 className={classes.price}>{item.value}</h4>
+                        <h4 className={classes.price}>{Currecy(item.price)} UZS</h4>
                         <p className={classes.product_name}>
                           {Name(item.name)}
                         </p>
@@ -108,32 +111,35 @@ function Categories({ token, categoryId, loading, products }) {
                     textTransform: "uppercase",
                   }}
                 >
-                  PRODUCT NOT FOUND
+                  {translate("ПРОДУКТЫ НЕ НАЙДЕНЫ", "MAHSULOTLAR TOPILMADI", "PRODUCTS NOT FOUND")}
                 </h1>
               )}
             </div>
-            <div className={classes.pagination}>
-              <button
-                className={disabled2 ? classes.disabled : classes.prev}
-                onClick={(e) => {
-                  PrevPage();
-                  window.scrollTo(0, 100);
-                }}
-                disabled={disabled2}
-              >
-                <i className="fa-solid fa-angle-left"></i>
-              </button>
-              <button
-                className={disabled ? classes.disabled : classes.next}
-                onClick={(e) => {
-                  NextPage();
-                  window.scrollTo(0, 100);
-                }}
-                disabled={disabled}
-              >
-                <i className="fa-solid fa-angle-right"></i>
-              </button>
-            </div>
+            {
+              productsView.length > 5 ?
+                <div className={classes.pagination}>
+                  <button
+                    className={disabled2 ? classes.disabled : classes.prev}
+                    onClick={(e) => {
+                      PrevPage();
+                      window.scrollTo(0, 100);
+                    }}
+                    disabled={disabled2}
+                  >
+                    <i className="fa-solid fa-angle-left"></i>
+                  </button>
+                  <button
+                    className={disabled ? classes.disabled : classes.next}
+                    onClick={(e) => {
+                      NextPage();
+                      window.scrollTo(0, 100);
+                    }}
+                    disabled={disabled}
+                  >
+                    <i className="fa-solid fa-angle-right"></i>
+                  </button>
+                </div> : ""
+            }
           </>
         )}
       </div>

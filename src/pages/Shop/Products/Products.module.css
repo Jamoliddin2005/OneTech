@@ -1,5 +1,7 @@
 .Products {
   width: calc(100% / 12 * 9);
+  position: relative;
+  padding-top: 100px;
 }
 
 .Products .products_block {
@@ -272,7 +274,7 @@
   background-color: #fff;
 }
 
-.Products .pagination .prev{
+.Products .pagination .prev {
   margin-left: 20px;
 }
 
@@ -335,9 +337,11 @@
   .Products .product_card {
     width: calc(100% / 2);
   }
+
   .Products .product_card:nth-of-type(odd) .product_border {
     display: block;
   }
+
   .Products .product_card .product_border {
     right: 0;
   }

@@ -4,6 +4,7 @@ import classes from "./Products.module.css";
 import Loading from "../../../components/Loading/Loading";
 import { BASE_URL } from "../../../constants/BASE_URL";
 import translate from "../../../services/translate";
+import Currecy from "../../../services/Currency";
 const Products = ({ token }) => {
   const newCls = [classes.new];
   newCls.push(classes.free);
@@ -22,7 +23,8 @@ const Products = ({ token }) => {
       fetch(page)
         .then((response) => response.json())
         .then((res) => {
-          setProducts(res.results)
+
+          setProducts(res)
           if (res.next !== null) {
             setPage(res.next);
             setPrevious(res.previous)
@@ -64,7 +66,7 @@ const Products = ({ token }) => {
       fetch(`${BASE_URL}product/5product/`)
         .then((response) => response.json())
         .then((res) => {
-          setProducts(res.results)
+          setProducts(res)
           setPage(res.next);
           setLoading(false);
         });
@@ -127,7 +129,7 @@ const Products = ({ token }) => {
                         />
                       </div>
                       <div className={classes.product_info}>
-                        <h4 className={classes.price}>{item.value} <span className={classes.UZS}> UZS</span></h4>
+                        <h4 className={classes.price}>{Currecy(item.price)} <span className={classes.UZS}> UZS</span></h4>
                         <p className={classes.product_name}>{Name(item.name)}</p>
                       </div>
                     </Link>
@@ -135,12 +137,17 @@ const Products = ({ token }) => {
                 }) : <h3 style={{ marginTop: "30px" }}>{translate("Продукт недоступен", "Mahsulot mavjud emas", "Product not available")}</h3>}
             </div>
             {products ? products.length > 1 ? <div className={classes.pagination}>
-              <button className={disabled2 ? classes.disabled : classes.prev} onClick={(e) => PrevPage()} disabled={disabled2}>
-                <i className="fa-solid fa-angle-left"></i>
-              </button>
-              <button className={disabled ? classes.disabled : classes.next} onClick={(e) => NextPage()} disabled={disabled}>
-                <i className="fa-solid fa-angle-right"></i>
-              </button>
+              {page ? (
+                <>
+                  <button className={disabled2 ? classes.disabled : classes.prev} onClick={(e) => PrevPage()} disabled={disabled2}>
+                    <i className="fa-solid fa-angle-left"></i>
+                  </button>
+                  <button className={disabled ? classes.disabled : classes.next} onClick={(e) => NextPage()} disabled={disabled}>
+                    <i className="fa-solid fa-angle-right"></i>
+                  </button>
+                </>
+              ) : ("")}
+
             </div> : "" : ""}
 
           </>

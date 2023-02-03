@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import classes from "./Filter.module.css";
 import Loading2 from "../../../components/Loading2/Loading2"
 import { BASE_URL } from "../../../constants/BASE_URL";
+import translate from "../../../services/translate";
 const Filter = () => {
 
   const [category, setCategory] = useState([""]);
@@ -19,7 +20,7 @@ const Filter = () => {
       fetch(`${BASE_URL}product/3category/`)
         .then((response) => response.json())
         .then(res => {
-          setCategory(res.results)
+          setCategory(res)
           if (res.results) {
             for (var i = 0; i < res.results.length; i++) {
               setCategorySub(res.results[i].children);
@@ -35,7 +36,7 @@ const Filter = () => {
 
   return (
     <div className={classes.Filter}>
-      <h4>Categories</h4>
+      <h4>{translate("Категории", "Kategoriyalar", "Categories")}</h4>
       <div className={classes.category}>
         {loading ? (
           <Loading2 />
@@ -47,7 +48,7 @@ const Filter = () => {
                   window.scrollTo(0, 0)
                   window.localStorage.setItem("categoryPage", a.id)
                 }}>
-                  {a.name}
+                  {a.title}
                 </Link>
               )) : ""
             }
@@ -55,7 +56,6 @@ const Filter = () => {
               <Link to={`/category/${a.id}`} className={classes.link} key={index} onClick={(e) => {
                 window.scrollTo(0, 0)
                 window.localStorage.setItem("categoryPage", a.id)
-
               }}>
                 {a.name}
               </Link>
