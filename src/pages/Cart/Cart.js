@@ -32,11 +32,14 @@ const Cart = ({
 
     const onSubmit = async (e) => {
         e.preventDefault()
-        let quantity = []
-        let productIds = []
+        let productsAll = []
+
         for (var i = 0; i < Object.values(JSON.parse(productsInCart)).length; i++) {
-            quantity.push(Object.values(JSON.parse(productsInCart))[i].inCart * Object.values(JSON.parse(productsInCart))[i].value);
-            productIds.push(Object.values(JSON.parse(productsInCart))[i].id);
+            const person = new Object()
+            person.product = Object.values(JSON.parse(productsInCart))[i].id;
+            person.quantity = Object.values(JSON.parse(productsInCart))[i].inCart;
+
+            productsAll.push(person)
         }
 
         axios.post(`${BASE_URL}cart/order/`, {
@@ -44,24 +47,17 @@ const Cart = ({
             address: address,
             note: note,
             zipcode: zipCode,
-            cart_items: productIds
+            order_products: productsAll
         }, {
             headers: {
                 Authorization: 'Bearer ' + localStorage.getItem("accessToken")
             }
         })
             .then(res => {
-                axios.post(`${BASE_URL}cart/quantity/`, {
-                    cart_items: productIds,
-                    quantities: quantity
-                })
-                    .then(res => {
-                        setMoney(false)
-                        return toast.success(res.data.message)
-                    })
-                    .catch(err => console.log(err))
+                setMoney(false)
+                return toast.success(translate("Отправлен", "Yuborildi", "Sended"))
             })
-            .catch(err => console.log(err))
+            .catch(err => toast.error(translate("не отправлен", "Yuborilmadi", "no sended")))
 
     }
 
@@ -102,7 +98,7 @@ const Cart = ({
                                                                 <h4 className={name.join(' ')}>{item.name.slice(0, 9) + "..."}</h4>
                                                             </div>
                                                             <div className={rightText.join(' ')}>
-                                                                <h4 className={classes.cart_item_inline_value}>{Currency(item.price)} UZS</h4>
+                                                                <h4 className={classes.cart_item_inline_value}>{Currency(item.get_discounted_price)} UZS</h4>
                                                             </div>
                                                             <div className={rightText.join(' ')}>
                                                                 <h4 className={classes.cart_item_inline_value}>{item.category[0].title.slice(0, 9) + "..."}</h4>

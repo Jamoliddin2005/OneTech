@@ -77,7 +77,16 @@
   text-align: center;
   font-size: 16px;
   font-weight: 500;
-  margin-top: 25px;
+  margin-top: 2px;
+}
+
+.oldPrice {
+  display: block;
+  text-align: center;
+  margin-top: 15px;
+  font-size: 12px;
+  text-decoration: line-through;
+  color: #ccc;
 }
 
 .bigСardLink {
@@ -121,6 +130,7 @@ del {
   .bigСardBtn {
     margin-top: 0;
   }
+
   .bigСardPrice {
     margin-top: 10px;
   }

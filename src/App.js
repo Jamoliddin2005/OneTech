@@ -146,11 +146,11 @@ function App() {
     if (cartCoast !== null) {
       localStorage.setItem(
         "totalCoast",
-        +cartCoast + Number(product.price)
+        +cartCoast + Number(product.get_discounted_price)
       );
       setTotalCoastGet(localStorage.getItem("totalCoast"));
     } else {
-      localStorage.setItem("totalCoast", Number(product.price));
+      localStorage.setItem("totalCoast", Number(product.get_discounted_price));
       setTotalCoastGet(localStorage.getItem("totalCoast"));
     }
   }
@@ -194,7 +194,7 @@ function App() {
     if (cartCoast !== null) {
       localStorage.setItem(
         "totalCoast",
-        +cartCoast - Number(product.price)
+        +cartCoast - Number(product.get_discounted_price)
       );
       setTotalCoastGet(localStorage.getItem("totalCoast"));
     }
