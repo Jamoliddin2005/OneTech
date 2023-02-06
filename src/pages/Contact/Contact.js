@@ -61,7 +61,7 @@ const Contact = () => {
                             <i className="fa-solid fa-envelope"></i>
                             <div className="contact_info">
                                 <h4>Email</h4>
-                                <a target="_blank" rel="noopener noreferrer" href="mailto: fastsales@gmail.com">fastsales@gmail.com</a>
+                                <a target="_blank" rel="noopener noreferrer" href="mailto: eskitoshmimedtexnika@gmail.com">eskitoshmimedtexnika@gmail.com</a>
                             </div>
                         </div>
                         <div className={classes.contact}>

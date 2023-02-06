@@ -121,7 +121,7 @@ export default function Navbar({
                   src="data:image/webp;base64,UklGRtAAAABXRUJQVlA4TMMAAAAvE0ADEJ8SEQzbto2cO8lOv4uPVhECzEzKPnS4680W7DLah+HPOFVKE4AIhAY00mxAjGTbtDXPtm3btvmx88/mIoWI/k9AZb7d6dxMa5LH4tBspiyP/yI66/+3ceS1NGixHu/BwQUWf2G1hIxge/BAVUpKDSmAbXVwAtFnCzD1riHAqoRXHoHwr7jQkvzJF47ndPYvpeSBpmTAbYe0dMG2OmPcf/2o+t4nM+tJ7DVEc/8TH4qUwKgRciKte2cy0zzp3NoA"
                   alt=""
                 />
-                <a href="mailto:fastsales@gmail.com">fastsales@gmail.com</a>
+                <a href="mailto:eskitoshmimedtexnika@gmail.com">eskitoshmimedtexnika@gmail.com</a>
               </div>
             </div>
             <div className={classes.center}>
