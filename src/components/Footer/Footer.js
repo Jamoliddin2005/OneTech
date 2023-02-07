@@ -118,7 +118,7 @@ function Footer() {
                   "Got Question? Call Us 24/7"
                 )}
               </h5>
-              <a href="tel:+38 068 005 3570">+38 068 005 3570</a>
+              <a href="tel:+998 90 951 70 10">+998 90 951 70 10</a>
               {location.map((item, index) => (
                 <p
                   key={index}

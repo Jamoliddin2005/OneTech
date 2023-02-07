@@ -54,7 +54,7 @@ const Contact = () => {
                             <i className="fa-solid fa-mobile-screen"></i>
                             <div className="contact_info">
                                 <h4>Phone</h4>
-                                <a rel="noopener noreferrer" href="tel:+38 068 005 3570">+38 068 005 3570</a>
+                                <a rel="noopener noreferrer" href="tel:+998 90 951 70 10">+998 90 951 70 10</a>
                             </div>
                         </div>
                         <div className={classes.contact}>

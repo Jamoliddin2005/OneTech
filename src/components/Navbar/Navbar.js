@@ -114,7 +114,7 @@ export default function Navbar({
                   src="data:image/webp;base64,UklGRqYAAABXRUJQVlA4TJoAAAAvCsAEEO8REQ7bSFLk5FUNHPP9x9DItCRxR4C/7LRP8Bb+NECFkIaYQSFlIKvCdSTbpnXtZ9u2nX9k5+8FsNbeEf2fgPr1sN+JKC7Nd2xlNZE8w9dzOtueRAh9nqvlUlFEUTmtLPNi4xmc9b9xDTaWlnn+mAx10NOhjh+3Xls6064IbnOLDH4Rydk39ZkbFXwmn8b9yHUf5L0F"
                   alt=""
                 />
-                <a href="tel:+38 068 005 3570">+38 068 005 3570</a>
+                <a href="tel:+998 90 951 70 10">+998 90 951 70 10</a>
               </div>
               <div className={classes.Email}>
                 <img
@@ -128,7 +128,7 @@ export default function Navbar({
               <ul>
                 <li>
                   <a
-                    href="https://t.me/ibragimovxusan"
+                    href="https://t.me/medtexnika_toshmi"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
